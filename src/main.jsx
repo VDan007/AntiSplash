@@ -13,10 +13,14 @@ const router = createBrowserRouter([
     errorElement:<ErrorPage/>,
     children:[
       {
-        path:"/cart",
+        path:"/carttt",
         element: <Cart/>
       },
     ],
+  },
+  {
+    path:"/cart",
+    element: <Cart/>
   },
   
 ]);

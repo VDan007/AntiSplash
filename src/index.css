@@ -5,8 +5,8 @@
 }
 
 .App{
-  background-color: whitesmoke;
-  color: black;
+  background-color: black;
+  color: whitesmoke;
 }
 
 a{
@@ -41,6 +41,13 @@ main.photos {
   object-fit: cover;
   min-width: 300px;
   max-width: 400px;
+  border-radius: 10px;
+  transition-duration: 0.5s;
+}
+.img001:hover{
+  transform: scale(1.15);
+  border: 1px solid whitesmoke;
+  border-radius: 0px;
 }
 
 
