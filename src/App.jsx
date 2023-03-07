@@ -1,21 +1,23 @@
 
 import Header from './components/Header';
 import { Outlet,Link } from 'react-router-dom';
+import { Photos } from "./pages/Photos"
+import { createContext,useEffect,useState } from 'react';
 
-import { createContext,useEffect } from 'react';
-
-const pictures = createContext('');
+const picturesContext = createContext();
 
 
 
 function App() {
+
+const [pictures, setPictures] = useState([]);
 
 
 useEffect(
   ()=>{
     fetch("https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json")
     .then(data=>data.json())
-    .then(data=>console.log(data))
+    .then(data=>setPictures(data))
   },[]
 );
 
@@ -23,13 +25,15 @@ useEffect(
   return (
    
       <div className="App">
-        <pictures.Provider value={true}>
+        <picturesContext.Provider value={pictures}>
           <Header />
             <Link to="/cart">
               <h1>Cart</h1>
             </Link>
           <Outlet/>
-        </pictures.Provider> 
+          <Photos pictures = {pictures}/>
+
+        </picturesContext.Provider> 
         
       </div>
    
@@ -37,4 +41,4 @@ useEffect(
   )
 }
 
-export  {App };
+export  {App,picturesContext };

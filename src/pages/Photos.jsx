@@ -1,11 +1,26 @@
 import React from "react"
 
-function Photos() {
+function Photos(props) {
+
+    const imgClassList = ["img001","img002","img003"];
+
+    const imagesToRender = props.pictures.map(
+        item=>{
+            return (
+                <img src={item.url}
+                     alt=""
+                     key = {item.url}
+                     className={ imgClassList[Math.floor(Math.random()*3)] }
+                />
+            );
+        }
+    );
+
     return (
         <main className="photos">
-            <h1>Images go here</h1>
+            {imagesToRender}
         </main>
     )
 }
 
-export default Photos
+export  {Photos}
