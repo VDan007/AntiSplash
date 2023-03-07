@@ -2,17 +2,18 @@ import React from "react"
 
 function Photos(props) {
 
-    const imgClassList = ["img001","img002","img003"];
+  
 
     const imagesToRender = props.pictures.map(
         item=>{
             return (
-                <img src={item.url}
-                     alt=""
-                     key = {item.url}
-                     className="img001"
-                     
-                />
+                <div className="imgContainer" key = {item.url}>
+                    <img src={item.url}
+                         alt=""
+                         className="img001"
+                    />
+
+                </div>
             );
         }
     );
