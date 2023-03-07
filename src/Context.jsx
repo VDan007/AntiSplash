@@ -1,16 +1,21 @@
-import React from "react"
+import React from "react";
+import { useEffect} from "react";
 
-const Context = React.createContext("");
+import { createContext } from "react";
 
-function ContextProvider(props) {
 
-    const [allPhotos,setAllPhotos] = React.useState([]);
 
-    return (
-        <ContextProvider value="">
-            {props.children}
-        </ContextProvider>
-    )
-}
+function ContextProvider(){}
 
-export {ContextProvider, Context}
+// useEffect(
+//     ()=>{
+//         fetch("https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json")
+//         .then(resp=>resp.json())
+//         .then(data=>console.log(data))
+//     },[]
+// );
+
+export const loggedIn = createContext('');
+
+
+
