@@ -10,7 +10,8 @@ function Photos(props) {
                 <img src={item.url}
                      alt=""
                      key = {item.url}
-                     className={ imgClassList[Math.floor(Math.random()*3)] }
+                     className="img001"
+                     
                 />
             );
         }

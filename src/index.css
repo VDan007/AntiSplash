@@ -5,48 +5,41 @@
 }
 
 .App{
-  background-color: aquamarine;
+  background-color: whitesmoke;
+  color: red;
 }
 
-:root {
-  --black: #150605;
-  --red: #EA453C;
-  --pink: #F47B6E;
-  --light-blue: #EFFBFE;
-  --blue: #ACE6EC;
+a{
+  text-decoration: none;
 }
+
+
 
 html, body {
   font-family: 'Oswald', sans-serif;
   margin: 0;
   padding: 0;
+  color:#150605;
 }
 
 main.photos {
   padding: 10px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: center;
+  
 }
 
 .img001{
   width: 30%;
   height: auto;
-}
-.img002{
-  width: 30%;
-  height: auto;
-}
-.img003{
-  width: 30%;
-  height: auto;
+  object-fit: cover;
 }
 
 
 
-main.cart-page {
-  padding: 10px;
-}
+
+
 
 .cart-page > h1 {
   text-align: center;
@@ -118,26 +111,16 @@ img.image-grid {
 }
 
 .cart {
-  color: var(--blue);
+  color: black;
   font-size: 1.2rem;
   position: absolute;
   top: 5px;
   right: 5px;
   cursor: pointer;
+  background-color: red;
 }
 
-.wide {
-  grid-column: span 2;
-}
 
-.tall {
-  grid-row: span 2;
-}
-
-.big {
-  grid-column: span 2;
-  grid-row: span 2;
-}
 
 header {
   display: flex;
@@ -151,10 +134,3 @@ header {
   box-shadow: 0px 2px 10px -5px rgba(21,6,5,1);
 }
 
-a {
-  text-decoration: none;
-}
-
-a:visited { color: var(--light-blue); }
-a:hover { color: var(--light-blue); }
-a:active { color: var(--light-blue); }
