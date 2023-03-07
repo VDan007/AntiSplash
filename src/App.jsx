@@ -27,7 +27,6 @@ useEffect(
       <div className="App">
         <picturesContext.Provider value={pictures}>
           <Header />
-           
           <Outlet/>
           <Photos pictures = {pictures}/>
 

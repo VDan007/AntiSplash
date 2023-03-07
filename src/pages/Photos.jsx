@@ -12,7 +12,6 @@ function Photos(props) {
                          alt=""
                          className="img001"
                     />
-
                 </div>
             );
         }
