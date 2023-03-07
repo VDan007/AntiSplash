@@ -8,13 +8,15 @@ import { picturesContext } from "../App";
 
 function Header() {
     const recievedPicturesAsContext = useContext(picturesContext);
-    console.log(recievedPicturesAsContext);
+
     return (
         <header>
             <Link to="/">
             <h2>Pic Some</h2>
             </Link>
-            <i className="ri-shopping-cart-line ri-fw ri-2x"></i>
+            <Link to="/cart">
+                Cart
+            </Link>
             
         </header>
     )

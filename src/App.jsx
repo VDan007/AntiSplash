@@ -27,9 +27,7 @@ useEffect(
       <div className="App">
         <picturesContext.Provider value={pictures}>
           <Header />
-            <Link to="/cart">
-              <h1>Cart</h1>
-            </Link>
+           
           <Outlet/>
           <Photos pictures = {pictures}/>
 
