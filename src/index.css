@@ -40,7 +40,6 @@ main.photos {
 .imgContainer{
   width: 30%;
   height: auto;
-  
   min-width: 300px;
   max-width: 400px;
   border-radius: 10px;
