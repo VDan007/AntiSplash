@@ -8,6 +8,7 @@ const picturesContext = createContext();
 
 
 
+
 function App() {
 
 const [pictures, setPictures] = useState([]);
