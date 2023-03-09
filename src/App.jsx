@@ -13,6 +13,20 @@ function App() {
 
 const [pictures, setPictures] = useState([]);
 
+function toggleFavorite(id){
+  setPictures(prev=>prev.map(
+    picture=>{
+      if(picture.id !== id){
+        return picture;
+      }else{
+        return {...picture,
+                isFavorite : !picture.isFavorite}
+      }
+    }
+  ));
+  
+}
+
 
 useEffect(
   ()=>{
@@ -26,7 +40,7 @@ useEffect(
   return (
    
       <div className="App">
-        <picturesContext.Provider value={pictures}>
+        <picturesContext.Provider value={toggleFavorite}>
           <Header />
           <Outlet/>
           <Photos pictures = {pictures}/>
