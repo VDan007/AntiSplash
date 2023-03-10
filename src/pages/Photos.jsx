@@ -13,9 +13,9 @@ function Photos(props) {
                  onMouseEnter={()=>setHovered(true)} 
                  onMouseLeave={()=>setHovered(false)}
             >
-                    {props.data.isFavorite && <img onClick={()=>toggleFav(props.data.id)} src="public/heartRed.svg" className="heartImg" alt="" />}
-                    {!props.data.isFavorite && hovered && <img onClick={()=>toggleFav(props.data.id)} src="public/heartWhite.svg" className="heartImg" alt="" />}
-                    {hovered && <img src="public/plusWhite.svg" className="plusImg" alt="" />}
+                    {props.data.isFavorite && <img onClick={()=>toggleFav(props.data.id)} src="/heartRed.svg" className="heartImg" alt="" />}
+                    {!props.data.isFavorite && hovered && <img onClick={()=>toggleFav(props.data.id)} src="/heartWhite.svg" className="heartImg" alt="" />}
+                    {hovered && <img src="/plusWhite.svg" className="plusImg" alt="" />}
                     
                     <img src={props.data.url}
                          alt=""
