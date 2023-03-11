@@ -1,13 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { picturesContext } from "../App";
+
 
 
 
 
 function Header() {
-    const recievedPicturesAsContext = useContext(picturesContext);
+    
 
     return (
         <header>
