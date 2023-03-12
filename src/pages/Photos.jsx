@@ -5,7 +5,7 @@ import { Context} from "../Context";
 
 
 function Photos() {
-    console.log(Context);
+    
     const {pictures} = useContext(Context);
   
 

@@ -15,11 +15,11 @@ function App() {
   return (
    
       <div className="App">
-        <ContextProvider>
+        
           <Header />
           <Outlet/>
           <Photos/>
-        </ContextProvider> 
+        
         
       </div>
    

@@ -12,10 +12,11 @@ function ContextProvider({children}){
 
     function addToCart(picture){
     setCartItems(prev=>{
-        const newCartList = [...prev]
+        const newCartList = [...prev];
         newCartList.push(picture);
         return newCartList;
     })
+    console.log(cartItems);
     }
 
     function toggleFavorite(id){
@@ -44,7 +45,7 @@ useEffect(
 
 
     return (
-        <Context.Provider value={{pictures,toggleFavorite}}>
+        <Context.Provider value={{pictures,toggleFavorite,addToCart,cartItems}}>
             {children}
         </Context.Provider>
     );
