@@ -11,11 +11,23 @@ function ContextProvider({children}){
 
 
     function addToCart(picture){
-        setCartItems(prev=>{
-            const newCartList = [...prev];
-            newCartList.push(picture);
-            return newCartList;
-        })
+        if(cartItems.some(item=>{
+            item.id == picture.id
+        })){
+            setCartItems(
+                prev=>{
+                   prev.filter(item=> item.id !== picture.id )
+
+                }
+            );
+
+        }else{
+            setCartItems(prev=>{
+                const newCartList = [...prev];
+                newCartList.push(picture);
+                return newCartList;
+            })
+        }
     }
 
     function toggleFavorite(id){

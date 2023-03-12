@@ -26,7 +26,7 @@ import { Context } from "../Context";
                                      className="plusImg" 
                                      alt="" />}
                     {inCart && <img src="/shoppingCart.svg" 
-                                     
+                                      onClick={()=>addToCart(props.data)}
                                      className="plusImg" 
                                      alt="" />}
 
