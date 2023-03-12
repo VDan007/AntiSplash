@@ -4,8 +4,8 @@ import { Context } from "../Context";
 
  function Photo(props){
         const [hovered,setHovered] = useState(false);
-        const {toggleFavorite} = useContext(Context);
-        const {addToCart} = useContext(Context);
+        const {toggleFavorite, addToCart,cartItems} = useContext(Context);
+        const inCart = cartItems.some(item=> item.id === props.data.id);
         return(
             <div className="imgContainer"
                  onMouseEnter={()=>setHovered(true)} 
@@ -21,10 +21,15 @@ import { Context } from "../Context";
                                                             className="heartImg" 
                                                             alt="" 
                                                           />}
-                    {hovered && <img src="/plusWhite.svg" 
+                    {!inCart && hovered && <img src="/plusWhite.svg" 
                                      onClick={()=>addToCart(props.data)}
                                      className="plusImg" 
                                      alt="" />}
+                    {inCart && <img src="/shoppingCart.svg" 
+                                     
+                                     className="plusImg" 
+                                     alt="" />}
+
                     
                     <img src={props.data.url}
                          alt=""

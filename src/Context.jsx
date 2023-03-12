@@ -11,12 +11,11 @@ function ContextProvider({children}){
 
 
     function addToCart(picture){
-    setCartItems(prev=>{
-        const newCartList = [...prev];
-        newCartList.push(picture);
-        return newCartList;
-    })
-    console.log(cartItems);
+        setCartItems(prev=>{
+            const newCartList = [...prev];
+            newCartList.push(picture);
+            return newCartList;
+        })
     }
 
     function toggleFavorite(id){
