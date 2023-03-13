@@ -23,6 +23,12 @@ function Cart() {
                     Home
                 </Link>
                 {imagesToRenderInCart}
+                <p className="total-cost">
+                    Total:
+                </p>
+                <div className="order-button">
+                    <button className="order-button">Place Order</button>
+                </div>
             </main>
         
         
