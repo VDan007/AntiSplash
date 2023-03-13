@@ -11,23 +11,16 @@ function ContextProvider({children}){
 
 
     function addToCart(picture){
-        if(cartItems.some(item=>{
-            item.id == picture.id
-        })){
-            setCartItems(
-                prev=>{
-                   prev.filter(item=> item.id !== picture.id )
 
-                }
-            );
-
-        }else{
             setCartItems(prev=>{
                 const newCartList = [...prev];
                 newCartList.push(picture);
                 return newCartList;
-            })
-        }
+            });
+    }
+
+    function removeFromCart(picture){
+        setCartItems(prev=> prev.filter(item=> item.id !== picture.id));
     }
 
     function toggleFavorite(id){
@@ -56,7 +49,7 @@ useEffect(
 
 
     return (
-        <Context.Provider value={{pictures,toggleFavorite,addToCart,cartItems}}>
+        <Context.Provider value={{pictures,toggleFavorite,addToCart,cartItems,removeFromCart}}>
             {children}
         </Context.Provider>
     );
