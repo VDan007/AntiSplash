@@ -29,14 +29,14 @@ function Cart() {
                     Total: {(5.99 * cartItems.length).toLocaleString("en-US", {style: "currency", currency: "USD"})}
                  </p>}
 
-                 {ordering && <p>Placing Order</p>}
+                
 
                 <div className="order-button">
                     <button 
                         className="order-button"
                         onClick={()=>placeOrder()}
                     
-                    >Place Order</button>
+                    >{ordering ? "Ordering..." : "Place Order"}</button>
                 </div>
             </main>
         

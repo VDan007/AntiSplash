@@ -48,13 +48,13 @@ function ContextProvider({children}){
     }
 
 
-useEffect(
-  ()=>{
-    fetch("https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json")
-    .then(data=>data.json())
-    .then(data=>setPictures(data))
-  },[]
-);
+    useEffect(
+    ()=>{
+        fetch("https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json")
+        .then(data=>data.json())
+        .then(data=>setPictures(data))
+    },[]
+    );
 
 
 
