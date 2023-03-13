@@ -8,7 +8,7 @@ function ContextProvider({children}){
 
     const [pictures, setPictures] = useState([]);
     const [cartItems, setCartItems] = useState([]);
-
+    const [ordering,setOrdering] = useState(false);
 
     function addToCart(picture){
 
@@ -33,9 +33,19 @@ function ContextProvider({children}){
                     isFavorite : !picture.isFavorite}
         }
         }
-    ));
-  
-}
+    ));}
+
+    function placeOrder(){
+        if(cartItems.length > 0){
+            setCartItems([]);
+            setOrdering(true);
+            setTimeout(()=>{setOrdering(false)},3000);
+            console.log("Ordering")
+
+        }else{
+            alert("Please Select Some Pictures!")
+        }
+    }
 
 
 useEffect(
@@ -49,7 +59,7 @@ useEffect(
 
 
     return (
-        <Context.Provider value={{pictures,toggleFavorite,addToCart,cartItems,removeFromCart}}>
+        <Context.Provider value={{pictures,toggleFavorite,addToCart,cartItems,removeFromCart,placeOrder,ordering}}>
             {children}
         </Context.Provider>
     );

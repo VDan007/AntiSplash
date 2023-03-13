@@ -1,13 +1,13 @@
 import React from "react"
 import {Link} from "react-router-dom"
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Context} from "../Context"
 import { Photo } from "../components/Photo";
 import { CartItem } from "../components/CartItem";
 
 function Cart() {
-
-    const {cartItems} = useContext(Context);
+    
+    const {cartItems, placeOrder,ordering} = useContext(Context);
     const imagesToRenderInCart = cartItems.map(
       picture=>  <CartItem 
                     key={picture.id} 
@@ -23,11 +23,20 @@ function Cart() {
                     Home
                 </Link>
                 {imagesToRenderInCart}
-               {cartItems.length > 0 && <p className="total-cost">
+
+               {!ordering && cartItems.length > 0 && 
+                 <p className="total-cost">
                     Total: {(5.99 * cartItems.length).toLocaleString("en-US", {style: "currency", currency: "USD"})}
-                </p>}
+                 </p>}
+
+                 {ordering && <p>Placing Order</p>}
+
                 <div className="order-button">
-                    <button className="order-button">Place Order</button>
+                    <button 
+                        className="order-button"
+                        onClick={()=>placeOrder()}
+                    
+                    >Place Order</button>
                 </div>
             </main>
         
