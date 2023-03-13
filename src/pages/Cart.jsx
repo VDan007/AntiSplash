@@ -23,9 +23,9 @@ function Cart() {
                     Home
                 </Link>
                 {imagesToRenderInCart}
-                <p className="total-cost">
-                    Total:
-                </p>
+               {cartItems.length > 0 && <p className="total-cost">
+                    Total: {(5.99 * cartItems.length).toLocaleString("en-US", {style: "currency", currency: "USD"})}
+                </p>}
                 <div className="order-button">
                     <button className="order-button">Place Order</button>
                 </div>
