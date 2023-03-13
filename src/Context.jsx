@@ -37,9 +37,9 @@ function ContextProvider({children}){
 
     function placeOrder(){
         if(cartItems.length > 0){
-            setCartItems([]);
+            
             setOrdering(true);
-            setTimeout(()=>{setOrdering(false)},3000);
+            setTimeout(()=>{setOrdering(false),setCartItems([]);},3000);
             console.log("Ordering")
 
         }else{

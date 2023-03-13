@@ -32,11 +32,13 @@ function Cart() {
                 
 
                 <div className="order-button">
-                    <button 
+                   {cartItems.length > 0 ? <button 
                         className="order-button"
                         onClick={()=>placeOrder()}
                     
                     >{ordering ? "Ordering..." : "Place Order"}</button>
+                    :
+                    <p>You have no Items in Your Cart</p>}
                 </div>
             </main>
         
