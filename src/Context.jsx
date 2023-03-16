@@ -1,9 +1,10 @@
 import React, { useContext, useState, useEffect} from "react"
 import { createContext } from "react";
 import { initializeApp} from "firebase/app";
+import { getAuth } from "firebase/auth";
 
 
-const Context = createContext();
+
 
 const firebaseConfig = {
     apiKey: "AIzaSyC2JR_jafKyxpbpJ3_d_YeyTsZoPt19ny4",
@@ -13,6 +14,11 @@ const firebaseConfig = {
     messagingSenderId: "89224375686",
     appId: "1:89224375686:web:961ad359ae3315f7cbd007"
   };
+
+const app = initializeApp(firebaseConfig);  
+const auth = getAuth(app);
+
+const Context = createContext();  
 
 function ContextProvider({children}){
 
@@ -69,7 +75,15 @@ function ContextProvider({children}){
 
 
     return (
-        <Context.Provider value={{pictures,toggleFavorite,addToCart,cartItems,removeFromCart,placeOrder,ordering}}>
+        <Context.Provider value={{pictures,
+                                  toggleFavorite,
+                                  addToCart,
+                                  cartItems,
+                                  removeFromCart,
+                                  placeOrder,
+                                  ordering,
+                                  auth,
+                                  }}>
             {children}
         </Context.Provider>
     );
