@@ -1,8 +1,18 @@
 import React, { useContext, useState, useEffect} from "react"
 import { createContext } from "react";
+import { initializeApp} from "firebase/app";
 
 
 const Context = createContext();
+
+const firebaseConfig = {
+    apiKey: "AIzaSyC2JR_jafKyxpbpJ3_d_YeyTsZoPt19ny4",
+    authDomain: "scrimbaecommerce.firebaseapp.com",
+    projectId: "scrimbaecommerce",
+    storageBucket: "scrimbaecommerce.appspot.com",
+    messagingSenderId: "89224375686",
+    appId: "1:89224375686:web:961ad359ae3315f7cbd007"
+  };
 
 function ContextProvider({children}){
 
