@@ -5,6 +5,7 @@ import { Photos } from "./pages/Photos"
 import { SignIn } from "./components/firebase/auth/SignIn";
 import { SignUp } from "./components/firebase/auth/SignUp";
 import { AuthDetails } from "./components/firebase/auth/AuthDetails";
+import { Hero } from "./components/Hero";
 
 
 
@@ -18,6 +19,7 @@ function App() {
       <div className="App">
         
           <Header />
+          <Hero/>
           <Outlet/>
           <Photos/>
           <SignIn/>
