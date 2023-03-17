@@ -1,6 +1,6 @@
 import React, {useState, useContext} from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { Context } from "../Context";
+import { Context } from "../../Context";
 
 
 
