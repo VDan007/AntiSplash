@@ -22,8 +22,8 @@ function App() {
           <Hero/>
           <Outlet/>
           <Photos/>
-          <SignIn/>
-          <SignUp/>
+          {/* <SignIn/>
+          <SignUp/> */}
           <AuthDetails/>
       </div>
    

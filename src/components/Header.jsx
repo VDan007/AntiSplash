@@ -13,7 +13,7 @@ function Header() {
     return (
         <header>
             <Link to="/">
-            <h2>Pic Some</h2>
+            <img src="/unsplash-fill.svg" className="logoImg" alt="" />
             </Link>
 
             <Link to="/cart">
