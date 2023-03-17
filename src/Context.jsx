@@ -18,6 +18,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);  
 const auth = getAuth(app);
 
+
 const Context = createContext();  
 
 function ContextProvider({children}){
@@ -25,7 +26,8 @@ function ContextProvider({children}){
     const [pictures, setPictures] = useState([]);
     const [cartItems, setCartItems] = useState([]);
     const [ordering,setOrdering] = useState(false);
-
+    const [ authUser, setAuthUser] = useState(null);
+    
     function addToCart(picture){
 
             setCartItems(prev=>{
@@ -83,6 +85,8 @@ function ContextProvider({children}){
                                   placeOrder,
                                   ordering,
                                   auth,
+                                  authUser,
+                                  setAuthUser,
                                   }}>
             {children}
         </Context.Provider>

@@ -3,8 +3,8 @@ import React, { useEffect, useContext, useState} from "react";
 import { Context } from "../../Context";
 
 function AuthDetails(){
-    const { auth } = useContext(Context);
-    const [ authUser, setAuthUser] = useState(null);
+    const { auth,authUser,setAuthUser } = useContext(Context);
+    
 
     useEffect(()=>{
         const listen = onAuthStateChanged(auth,(user)=>{
