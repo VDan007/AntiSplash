@@ -105,6 +105,10 @@ main.photos {
   position:relative;
 }
 
+.imgContainer:hover{
+  opacity: 0.8;
+}
+
 /* .imgContainer:hover,
 .img001:hover{
   transform: scale(1.12);
