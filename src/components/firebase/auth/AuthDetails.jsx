@@ -1,6 +1,6 @@
 import { onAuthStateChanged, signOut } from "firebase/auth";
-import React, { useEffect, useContext, useState} from "react";
-import { Context } from "../../Context";
+import React, { useEffect, useContext} from "react";
+import { Context } from "../../../Context";
 
 function AuthDetails(){
     const { auth,authUser,setAuthUser } = useContext(Context);

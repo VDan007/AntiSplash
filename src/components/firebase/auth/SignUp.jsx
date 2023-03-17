@@ -1,11 +1,11 @@
 import React, {useState, useContext} from "react";
-import { signInWithEmailAndPassword } from "firebase/auth";
-import { Context } from "../../Context";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { Context } from "../../../Context";
 
 
 
 
-function SignIn(){
+function SignUp(){
     const { auth } = useContext(Context);
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
@@ -24,18 +24,18 @@ function SignIn(){
         );
     }
 
-    function signIn(e){
+    function signUp(e){
         e.preventDefault();
-        signInWithEmailAndPassword(auth,email,password)
+        createUserWithEmailAndPassword(auth,email,password)
         .then ( (userCredential) => {
             console.log(userCredential);
         }).catch((error)=> console.log(error))
     }
 
     return(
-        <div className="signInContainer">
-            <form onSubmit={signIn}>
-                <h1>Log In</h1>
+        <div className="signUpContainer">
+            <form onSubmit={signUp}>
+                <h1>Create Account</h1>
                 <input 
                     type="email" 
                     placeholder="email"
@@ -48,10 +48,10 @@ function SignIn(){
                     value= {password}
                     onChange={ handlePasswordChange }
                 /> 
-                <button type="submit">Log In</button>
+                <button type="submit">Sign Up</button>
             </form>
         </div>
     );
 }
 
-export { SignIn };
+export { SignUp };
