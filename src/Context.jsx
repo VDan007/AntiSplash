@@ -1,7 +1,8 @@
-import React, { useContext, useState, useEffect} from "react"
+import React, { useContext, useState, useEffect} from "react";
 import { createContext } from "react";
 import { initializeApp} from "firebase/app";
 import { getAuth } from "firebase/auth";
+import { doc,setDoc,getFirestore } from "firebase/firestore";
 
 
 
@@ -17,7 +18,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);  
 const auth = getAuth(app);
-
+const db = getFirestore(app);
 
 const Context = createContext();  
 
@@ -27,7 +28,23 @@ function ContextProvider({children}){
     const [cartItems, setCartItems] = useState([]);
     const [ordering,setOrdering] = useState(false);
     const [ authUser, setAuthUser] = useState(null);
+
+
     
+
+    async function setUserData(email){
+        await setDoc(doc(db,"users",email),{
+            email: email,
+            favorited: [],
+            purchased: [],
+            cart:[],
+            soul: false,
+
+        });
+        console.log("userDataSet");
+        
+    }
+
     function addToCart(picture){
 
             setCartItems(prev=>{
@@ -87,6 +104,7 @@ function ContextProvider({children}){
                                   auth,
                                   authUser,
                                   setAuthUser,
+                                  setUserData
                                   }}>
             {children}
         </Context.Provider>

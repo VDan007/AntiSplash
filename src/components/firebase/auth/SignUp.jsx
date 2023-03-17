@@ -6,7 +6,7 @@ import { Context } from "../../../Context";
 
 
 function SignUp(){
-    const { auth } = useContext(Context);
+    const { auth, setUserData } = useContext(Context);
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
 
@@ -30,6 +30,7 @@ function SignUp(){
         .then ( (userCredential) => {
             console.log(userCredential);
         }).catch((error)=> console.log(error))
+        setUserData(email);
     }
 
     return(
