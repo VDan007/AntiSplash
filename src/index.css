@@ -53,6 +53,7 @@ html, body {
 }
 .heroTextDiv p{
   font-size: 1.1rem;
+  font-weight: bold;
   margin: 0.2rem 0;
 }
 .heroTextDiv input{
@@ -64,7 +65,12 @@ html, body {
   padding: 1.5rem 0 1.5rem 2.5rem;
   z-index: 1;
   font-size: 1rem;
-  
+  background-color: black;
+  color: lightgray;
+}
+
+.heroTextDiv input::placeholder{
+  color: lightgray;
 }
 .inputSpan{
   position: relative;
