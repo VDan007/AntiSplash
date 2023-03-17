@@ -44,6 +44,44 @@ html, body {
   color: black;
   text-shadow: 1px 1px 20px white;
   text-align: left;
+  width: 65%;
+}
+
+.heroTextDiv h1{
+  margin-bottom: 0.8rem;
+  font-size: 2.3rem;
+}
+.heroTextDiv p{
+  margin: 0.2rem 0;
+}
+.heroTextDiv input{
+  width: 100%;
+  height: 2.5rem;
+  margin-top: 0.8rem;
+  border-radius: 5px;
+  border: 0;
+  padding: 1.5rem 0 1.5rem 2.5rem;
+  z-index: 1;
+  font-size: 1rem;
+  
+}
+.inputSpan{
+  position: relative;
+}
+.inputIcon{
+  position: absolute;
+  top:-6px;
+  left:5px;
+}
+.inputSpan::before{
+  position: absolute;
+  z-index: 2;
+  display:block;
+  bottom:0;
+  left:0;
+  width: 1rem;
+  height: 2.5rem;
+  content:"";
 }
 
 
