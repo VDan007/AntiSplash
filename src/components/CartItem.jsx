@@ -11,7 +11,7 @@ function CartItem(props){
                  onClick={()=>{removeFromCart(props.picture)}}
                  
             />
-            <img src={props.picture.url} width="130px" alt="" />
+            <img src={props.picture.urls.small} width="130px" alt="" />
             <p>$5.99</p>
         </div>
     );

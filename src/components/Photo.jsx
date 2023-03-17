@@ -31,7 +31,7 @@ import { Context } from "../Context";
                                      alt="" />}
 
                     
-                    <img src={props.data.url}
+                    <img src={props.data.urls.small}
                          alt=""
                          className="img001"
                     />

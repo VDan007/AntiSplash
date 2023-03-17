@@ -85,13 +85,13 @@ function ContextProvider({children}){
 
     useEffect(
     ()=>{
-        fetch("https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json")
-        .then(data=>data.json())
-        .then(data=>setPictures(data))
+        // fetch("https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json")
+        // .then(data=>data.json())
+        // .then(data=>setPictures(data))
 
         fetch("https://api.unsplash.com/photos/?client_id=aDoVNz0oe4OyiTv3FvuO3tOGZye5kVhJuZEUwcmsj7A")
             .then(data=>data.json())
-            .then(data=>console.log(data))
+            .then(data=>setPictures(data))
     },[]
     );
 
