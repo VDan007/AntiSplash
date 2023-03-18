@@ -68,7 +68,7 @@ function SignIn(){
                 </form>
                 <div className='noAccountDiv'>
                     <p>Don't have an account?</p>
-                    <Link to="/join">Join Unsplash</Link>
+                    <Link to="/join">Join Antisplash</Link>
                 </div>
 
             </div>

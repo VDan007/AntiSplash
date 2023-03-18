@@ -1,6 +1,7 @@
 import React, {useState, useContext} from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Context } from "../../../Context";
+import { Link } from "react-router-dom";
 
 
 
@@ -35,6 +36,13 @@ function SignUp(){
 
     return(
         <div className="signUpContainer">
+            <div className='signUpPictureDiv'></div>
+            <div>
+            <h1>Join Antisplash</h1>
+            <div>
+                <p>Already have an account?</p>
+                <Link to='/login'>Login</Link>
+            </div>
             <form onSubmit={signUp}>
                 <h1>Create Account</h1>
                 <input 
@@ -51,6 +59,8 @@ function SignUp(){
                 /> 
                 <button type="submit">Sign Up</button>
             </form>
+            </div>
+            
         </div>
     );
 }
