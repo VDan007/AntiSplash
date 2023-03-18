@@ -29,7 +29,7 @@ function AuthDetails(){
     return(
         <div className='authdDetailsDiv'>{authUser ? 
             <>
-                <p>{`Signed In as ${authUser.email}`}</p> 
+                <p>{authUser.email}</p> 
                 <button onClick={userSignOut}>
                         Sign Out 
                 </button>
