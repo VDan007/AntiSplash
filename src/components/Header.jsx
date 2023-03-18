@@ -12,7 +12,7 @@ function Header() {
     const {cartItems} = useContext(Context);
     console.log(cartItems);
     return (
-        <header>
+        <header className="header">
             <Link to="/">
             <img src="/unsplash-fill.svg" className="logoImg" alt="" />
             </Link>
