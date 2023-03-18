@@ -28,11 +28,17 @@ function AuthDetails(){
     return(
         <div>{authUser ? 
             <>
-            <button onClick={userSignOut}>Sign Out</button>
             <p>{`Signed In as ${authUser.email}`}</p> 
             </>
             :
-            <p>Signed Out</p>}
+            <button>Log in</button>}
+            <span> / </span>
+            <button onClick={userSignOut}>{
+                authUser ?
+                'Sign Out' 
+                :
+                'Sign Up'
+            }</button>
         </div>
     );
 }
