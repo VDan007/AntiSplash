@@ -6,23 +6,26 @@ import './index.css';
 import ErrorPage from "./error-page";
 import  Cart  from "./pages/Cart"
 import { ContextProvider } from './Context';
+import { SignIn } from './components/firebase/auth/SignIn';
+import { SignUp } from './components/firebase/auth/SignUp';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App/>,
     errorElement:<ErrorPage/>,
-    children:[
-      {
-        path:"/carttt",
-        element: <Cart/>
-      },
-    ],
+    
   },
   {
     path:"/cart",
     element: <Cart/>
   },
+  { path:"/login",
+    element: <SignIn/>
+  },
+  { path:"/join",
+    element: <SignUp/>
+  }
   
 ]);
 

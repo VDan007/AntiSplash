@@ -1,6 +1,7 @@
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import React, { useEffect, useContext} from "react";
 import { Context } from "../../../Context";
+import { Link } from "react-router-dom";
 
 function AuthDetails(){
     const { auth,authUser,setAuthUser } = useContext(Context);
@@ -26,19 +27,26 @@ function AuthDetails(){
         }
 
     return(
-        <div>{authUser ? 
+        <div className='authdDetailsDiv'>{authUser ? 
             <>
-            <p>{`Signed In as ${authUser.email}`}</p> 
+                <p>{`Signed In as ${authUser.email}`}</p> 
+                <button onClick={userSignOut}>
+                        Sign Out 
+                </button>
             </>
+            
             :
-            <button>Log in</button>}
-            <span> / </span>
-            <button onClick={userSignOut}>{
-                authUser ?
-                'Sign Out' 
-                :
-                'Sign Up'
-            }</button>
+
+            <>
+                <Link to="/login">
+                    <p>Log in</p>
+                </Link>
+                <span> / </span>
+                <Link to="/join">
+                    <p>Sign Up</p>
+                </Link>
+            </>
+        }
         </div>
     );
 }

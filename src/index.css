@@ -38,6 +38,12 @@ header{
   align-content: center;
 }
 
+.authdDetailsDiv{
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .heroDiv{
   width: 100%;
   height: 50vh;
