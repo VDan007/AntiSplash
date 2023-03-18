@@ -27,6 +27,17 @@ html, body {
   color:#150605;
 }
 
+header{
+  width: 100%;
+  height: 15vh;
+}
+
+.headerRightDiv{
+  display: flex;
+  gap: 1rem;
+  align-content: center;
+}
+
 .heroDiv{
   width: 100%;
   height: 50vh;
@@ -91,11 +102,7 @@ html, body {
   content:"";
 }
 
-.headerRightDiv{
-  display: flex;
-  gap: 1rem;
-  align-content: center;
-}
+
 
 main.photos {
   padding: 3px;
