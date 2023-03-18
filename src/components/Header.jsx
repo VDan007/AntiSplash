@@ -16,11 +16,12 @@ function Header() {
             <Link to="/">
             <img src="/unsplash-fill.svg" className="logoImg" alt="" />
             </Link>
-
-            <Link to="/cart">
-                <img src= {cartItems.length == 0 ? "/shoppingCart.svg" : "/shoppingCartFilled.svg"} alt="" />
-            </Link>
-            <AuthDetails/>
+            <div className="headerRightDiv">
+                <AuthDetails/>
+                <Link to="/cart">
+                    <img src= {cartItems.length == 0 ? "/shoppingCart.svg" : "/shoppingCartFilled.svg"} alt="" />
+                </Link>
+            </div>
         </header>
     )
 }

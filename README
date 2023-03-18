@@ -1,0 +1,10 @@
+An unsplash insipired project for my portfolio.
+The idea is to clone unsplash, add a dark theme, webshop like features and a chat Popup.
+
+technologies used:
+-vite
+-git
+-HTML
+-CSS
+-React
+-Firebase
