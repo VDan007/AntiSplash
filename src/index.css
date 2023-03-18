@@ -353,6 +353,7 @@ header {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  padding: 0 1rem;
   
 }
 .signUpPictureDiv a{
