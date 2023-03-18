@@ -1,6 +1,7 @@
 import React, {useState, useContext} from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { Context } from "../../../Context";
+import{ Link } from "react-router-dom";
 
 
 
@@ -34,22 +35,43 @@ function SignIn(){
 
     return(
         <div className="signInContainer">
-            <form onSubmit={signIn}>
-                <h1>Log In</h1>
-                <input 
-                    type="email" 
-                    placeholder="email"
-                    value={email}
-                    onChange={ handleEmailChange }
-                />
-                <input 
-                    type="password" 
-                    placeholder="password" 
-                    value= {password}
-                    onChange={ handlePasswordChange }
-                /> 
-                <button type="submit">Log In</button>
-            </form>
+            <div className='signInDiv'>
+                <img src="/unsplash-fill.svg" className="logoImg" alt="" />
+                <h1>Login</h1>
+                <p>Wellcome back.</p>
+                <button className='fbLoginBtn loginBtnsINputs'>Login with Facebook</button>
+                <p>OR</p>
+                <form className='signInForm' onSubmit={signIn}>
+                    <label htmlFor="email">
+                        Email
+                    </label>
+                    <input 
+                        name='email'
+                        type="email" 
+                        value={email}
+                        onChange={ handleEmailChange }
+                        className='loginBtnsINputs'
+                    />
+                    <label htmlFor="password">
+                        Password
+                    </label>
+                    <input 
+                        name='password'
+                        type="password" 
+                        value= {password}
+                        onChange={ handlePasswordChange }
+                        className='loginBtnsINputs'
+                    /> 
+                    <button type="submit" className='loginBtnsINputs loginBtn'>
+                        Login
+                    </button>
+                </form>
+                <div className='noAccountDiv'>
+                    <p>Don't have an account?</p>
+                    <Link to="/join">Join Unsplash</Link>
+                </div>
+
+            </div>
         </div>
     );
 }
