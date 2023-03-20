@@ -132,7 +132,7 @@ main.photos {
   width: 30%;
   height: auto;
   max-height: 340px;
-  min-width: 340px;
+  min-height: 340px;
   max-width: 400px;
   border-radius: 10px;
   transition-duration: 0.5s;
