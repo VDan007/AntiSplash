@@ -4,7 +4,7 @@ import { Context } from "../Context";
 
  function Photo(props){
         const [hovered,setHovered] = useState(false);
-        const {toggleFavorite, addToCart,cartItems,removeFromCart} = useContext(Context);
+        const {toggleFavorite, addToCart,cartItems,removeFromCart,setPictureOpen} = useContext(Context);
         const inCart = cartItems.some(item=> item.id === props.data.id);
         return(
             <div className="imgContainer"
@@ -34,6 +34,12 @@ import { Context } from "../Context";
                     <img src={props.data.urls.small}
                          alt=""
                          className="img001"
+                         onClick={()=>{
+                              setPictureOpen({
+                                   opened: true,
+                                   picture : props.data
+                              });
+                         }}
                     />
             </div>
         );

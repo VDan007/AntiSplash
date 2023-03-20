@@ -7,7 +7,7 @@ import { ClickedImage } from "../components/ClickedImage";
 
 function Photos() {
     
-    const {pictures} = useContext(Context);
+    const {pictures,pictureOpen} = useContext(Context);
   
 
     const imagesToRender = pictures.map(
@@ -24,8 +24,9 @@ function Photos() {
     return (
         <main className="photos">
             {imagesToRender}
-            <ClickedImage
-                photo={pictures[0]}/>
+           {pictureOpen.opened && <ClickedImage
+                                    photo={pictureOpen.picture}
+                                  />}
         </main>
     )
 }

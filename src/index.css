@@ -445,12 +445,10 @@ header {
   justify-content: space-between;
   background-color: rgba(0,0,0,0.7);
   z-index: 13;
-  
+  overflow-y: scroll;
 }
 
-.cliskedImageContainer img:hover{
-  transform: scale(1.2);
-}
+
 
 .cliskedImageContainerCloseBtn{
   position: fixed;
@@ -478,4 +476,10 @@ header {
 }
 .sideDiv{
   position: relative;
+}
+
+.clickedImageMainPhoto{
+  width: 100%;
+  height: auto;
+  max-height: 100%;
 }

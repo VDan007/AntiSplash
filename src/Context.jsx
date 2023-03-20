@@ -28,6 +28,8 @@ function ContextProvider({children}){
     const [cartItems, setCartItems] = useState([]);
     const [ordering,setOrdering] = useState(false);
     const [ authUser, setAuthUser] = useState(null);
+    const [pictureOpen,setPictureOpen] = useState({opened: false,
+                                                   picture: {},});
 
 
     
@@ -110,7 +112,9 @@ function ContextProvider({children}){
                                   auth,
                                   authUser,
                                   setAuthUser,
-                                  setUserData
+                                  setUserData,
+                                  pictureOpen,
+                                  setPictureOpen,
                                   }}>
             {children}
         </Context.Provider>
