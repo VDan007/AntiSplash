@@ -82,6 +82,7 @@ function SignUp(){
                     onChange={ handlePasswordChange }
                 /> 
                 <button type="submit">Join</button>
+                <p>By joining, you agree to the Terms and Privacy Policy</p>
             </form>
             </div>
             
