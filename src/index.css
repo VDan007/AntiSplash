@@ -443,9 +443,9 @@ header {
   height: 100%;
   display: flex;
   justify-content: space-between;
-  background-color: black;
+  background-color: rgba(0,0,0,0.7);
   z-index: 13;
-  opacity: 0.7;
+  
 }
 
 .cliskedImageContainer img:hover{
@@ -469,8 +469,12 @@ header {
   left: 2px;
 }
 .clickedImageMain{
+  background-color: black;
   border: 1px solid red;
-  flex-basis: 90%;
+  margin-top: 1.5rem;
+  flex-basis: 85%;
+  z-index: 19;
+  color: white;
 }
 .sideDiv{
   position: relative;
