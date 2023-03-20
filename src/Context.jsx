@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect} from "react";
+import React, { useState, useEffect} from "react";
 import { createContext } from "react";
 import { initializeApp} from "firebase/app";
 import { getAuth } from "firebase/auth";
@@ -30,7 +30,7 @@ function ContextProvider({children}){
     const [ authUser, setAuthUser] = useState(null);
     const [pictureOpen,setPictureOpen] = useState({opened: false,
                                                    picture: {},});
-
+    document.body.style.overflowY = pictureOpen.opened ? 'hidden' : 'scroll';
 
     
 
@@ -87,10 +87,6 @@ function ContextProvider({children}){
 
     useEffect(
     ()=>{
-        // fetch("https://raw.githubusercontent.com/bobziroll/scrimba-react-bootcamp-images/master/images.json")
-        // .then(data=>data.json())
-        // .then(data=>setPictures(data))
-
         fetch("https://api.unsplash.com/photos?per_page=33&client_id=aDoVNz0oe4OyiTv3FvuO3tOGZye5kVhJuZEUwcmsj7A")
             .then(data=>data.json())
             .then(data=>{
