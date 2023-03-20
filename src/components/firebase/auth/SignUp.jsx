@@ -62,28 +62,30 @@ function SignUp(){
                 </div>    
             <div className='signUpFormDiv'>
             <h1>Join Antisplash</h1>
-            <div>
+            <div className="alreadyDiv">
                 <p>Already have an account?</p>
                 <Link to='/login'>Login</Link>
             </div>
             <button className='fbLoginBtn loginBtnsINputs'>Join using Facebook</button>
             <form onSubmit={signUp}>
-                <h1>Create Account</h1>
+                
+                <label for='email'>Email</label>
                 <input 
+                    name="email"
                     type="email" 
-                    placeholder="email"
                     value={email}
                     onChange={ handleEmailChange }
                 />
+                <label for='password'>Password </label>
                 <input 
-                    type="password" 
-                    placeholder="password" 
+                    name='password'
+                    type="password"  
                     value= {password}
                     onChange={ handlePasswordChange }
                 /> 
                 <button type="submit">Join</button>
-                <p>By joining, you agree to the Terms and Privacy Policy</p>
             </form>
+                <p>By joining, you agree to the Terms and Privacy Policy.</p>
             </div>
             
         </div>
