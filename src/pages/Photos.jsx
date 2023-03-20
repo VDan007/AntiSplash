@@ -2,6 +2,7 @@ import React from "react";
 import { useState, useContext } from "react";
 import { Photo } from "../components/Photo";
 import { Context} from "../Context";
+import { ClickedImage } from "../components/ClickedImage";
 
 
 function Photos() {
@@ -23,6 +24,8 @@ function Photos() {
     return (
         <main className="photos">
             {imagesToRender}
+            <ClickedImage
+                photo={pictures[0]}/>
         </main>
     )
 }
