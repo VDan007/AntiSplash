@@ -20,7 +20,7 @@ function ClickedImage(props){
                     picture: {},
                  })}
             />
-            <div className="sideDiv">
+            <div className="sideDivL">
                 <img className="cliskedImageContainerArrowL" src="/arrow-left-s-line.svg" alt="" />
             </div>
 
@@ -42,7 +42,7 @@ function ClickedImage(props){
                 <img className="clickedImageMainPhoto" src={photoBig} alt="" />
             </div>
 
-            <div className="sideDiv">
+            <div className="sideDivR">
                 <img className="cliskedImageContainerArrowR"  src="/arrow-right-s-line.svg" alt="" />
             </div>
            
