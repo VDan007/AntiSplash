@@ -158,6 +158,12 @@ main.photos {
   transition-duration: 0.5s;
 }
 
+.img002{
+  width: 400px;
+  height: 250px;
+  object-fit: cover;
+}
+
 .heartImg{
   border-radius: 50%;
   position:absolute;
@@ -507,4 +513,13 @@ header {
   max-height: 85vh;
   object-fit: contain;
   border: 1px solid red;
+}
+
+.clickedImageMorePicturesDiv{
+  margin: 0 auto;
+  max-width: 80%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
 }

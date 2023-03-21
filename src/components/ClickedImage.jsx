@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext , useEffect, useState} from "react";
 import { Context } from '../Context';
 
 function ClickedImage(props){
@@ -8,7 +8,31 @@ function ClickedImage(props){
     const name = picture.user.first_name + " " + picture.user.last_name;
     const avalible = picture.user.for_hire ? "Avalible for hire" : `${picture.user.instagram_username}`;
     const profile = picture.links.portfolio;
+    const userName = picture.user.username;
+    const [morePictures,setMorePictures] = useState([]);
     const photoBig = picture.urls.regular; 
+
+
+    //client_id=aDoVNz0oe4OyiTv3FvuO3tOGZye5kVhJuZEUwcmsj7A
+
+    useEffect(
+        ()=>{
+            fetch(`https://api.unsplash.com/users/${userName}/photos?client_id=aDoVNz0oe4OyiTv3FvuO3tOGZye5kVhJuZEUwcmsj7A`)
+             
+            .then(data=>data.json())
+            .then(data=>setMorePictures(data));
+        },[]
+    );
+
+    const morePicturesToRender = morePictures.map(
+        pic=>{
+            return <img 
+                    src={pic.urls.small}
+                    className='img002'
+                   />
+        }
+            
+    );
 
     return(
         <div className="cliskedImageContainer">
@@ -40,12 +64,16 @@ function ClickedImage(props){
                     </div>
                 </div>
                 <img className="clickedImageMainPhoto" src={photoBig} alt="" />
+                <div className="clickedImageMorePicturesDiv">
+                    {morePicturesToRender}
+                </div>
             </div>
 
             <div className="sideDivR">
                 <img className="cliskedImageContainerArrowR"  src="/arrow-right-s-line.svg" alt="" />
             </div>
            
+            
         </div>
     );
 }
