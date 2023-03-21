@@ -1,17 +1,19 @@
+import { useContext} from 'react';
 
 import Header from './components/Header';
 import { Outlet } from 'react-router-dom';
 import { Photos } from "./pages/Photos"
-import { SignIn } from "./components/firebase/auth/SignIn";
-import { SignUp } from "./components/firebase/auth/SignUp";
 import { Hero } from "./components/Hero";
-
+import { Context } from "./Context";
+import { ClickedImage } from './components/ClickedImage';
 
 
 
 
 
 function App() {
+
+  const {pictures,pictureOpen} = useContext(Context);
 
   return (
    
@@ -21,8 +23,10 @@ function App() {
           <Hero/>
           <Outlet/>
           <Photos/>
-          {/* <SignIn/>
-          <SignUp/> */}
+          {pictureOpen.opened && <ClickedImage
+                                    photo={pictureOpen.picture}
+                                  />}
+          
           
       </div>
    

@@ -1,5 +1,6 @@
 import { useContext , useEffect, useState} from "react";
 import { Context } from '../Context';
+import { Photo } from './Photo';
 
 function ClickedImage(props){
     const { setPictureOpen } = useContext(Context);
@@ -23,18 +24,17 @@ function ClickedImage(props){
             .then(data=>console.log(data))
 
             ////get additional pictures
-            fetch(`https://api.unsplash.com/users/${userName}/photos?client_id=aDoVNz0oe4OyiTv3FvuO3tOGZye5kVhJuZEUwcmsj7A`)
+            fetch(`https://api.unsplash.com/users/${userName}/photos?per_page=33&client_id=aDoVNz0oe4OyiTv3FvuO3tOGZye5kVhJuZEUwcmsj7A`)
             .then(data=>data.json())
             .then(data=>setMorePictures(data));
-        },[]
+        },[picture]
     );
 
     const morePicturesToRender = morePictures.map(
         pic=>{
-            return <img 
-                    src={pic.urls.small}
-                    className='img002'
-                    key={pic.id}
+            return <Photo
+                    data={pic}
+                    key = {pic.id} 
                    />
         }
             

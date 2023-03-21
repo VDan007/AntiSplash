@@ -132,8 +132,9 @@ main.photos {
   width: 30%;
   height: auto;
   max-height: 340px;
-  min-height: 340px;
+  min-height: 300px;
   max-width: 400px;
+  min-width:300px;
   border-radius: 10px;
   transition-duration: 0.5s;
   position:relative;
