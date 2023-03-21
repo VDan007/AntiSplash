@@ -17,8 +17,13 @@ function ClickedImage(props){
 
     useEffect(
         ()=>{
+            /////get more info
+            fetch(`https://api.unsplash.com/photos/${picture.id}?client_id=aDoVNz0oe4OyiTv3FvuO3tOGZye5kVhJuZEUwcmsj7A`)
+            .then(data=>data.json())
+            .then(data=>console.log(data))
+
+            ////get additional pictures
             fetch(`https://api.unsplash.com/users/${userName}/photos?client_id=aDoVNz0oe4OyiTv3FvuO3tOGZye5kVhJuZEUwcmsj7A`)
-             
             .then(data=>data.json())
             .then(data=>setMorePictures(data));
         },[]
@@ -29,6 +34,7 @@ function ClickedImage(props){
             return <img 
                     src={pic.urls.small}
                     className='img002'
+                    key={pic.id}
                    />
         }
             
@@ -64,6 +70,11 @@ function ClickedImage(props){
                     </div>
                 </div>
                 <img className="clickedImageMainPhoto" src={photoBig} alt="" />
+
+                <dir className='clickedImageDescriptionDiv'>
+
+                </dir>
+
                 <div className="clickedImageMorePicturesDiv">
                     {morePicturesToRender}
                 </div>
