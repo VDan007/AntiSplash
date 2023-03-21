@@ -87,6 +87,8 @@ function ContextProvider({children}){
 
     useEffect(
     ()=>{
+
+        
         fetch("https://api.unsplash.com/photos?per_page=33&client_id=aDoVNz0oe4OyiTv3FvuO3tOGZye5kVhJuZEUwcmsj7A")
             .then(data=>data.json())
             .then(data=>{
