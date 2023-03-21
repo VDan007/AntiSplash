@@ -27,6 +27,8 @@ function ClickedImage(props){
             fetch(`https://api.unsplash.com/users/${userName}/photos?per_page=33&client_id=aDoVNz0oe4OyiTv3FvuO3tOGZye5kVhJuZEUwcmsj7A`)
             .then(data=>data.json())
             .then(data=>setMorePictures(data));
+            ////upscroll
+            
         },[picture]
     );
 

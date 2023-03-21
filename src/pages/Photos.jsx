@@ -24,9 +24,7 @@ function Photos() {
     return (
         <main className="photos">
             {imagesToRender}
-           {pictureOpen.opened && <ClickedImage
-                                    photo={pictureOpen.picture}
-                                  />}
+           
         </main>
     )
 }
