@@ -69,14 +69,14 @@ function SignUp(){
             <button className='fbLoginBtn loginBtnsINputs'>Join using Facebook</button>
             <form onSubmit={signUp}>
                 
-                <label for='email'>Email</label>
+                <label htmlFor='email'>Email</label>
                 <input 
                     name="email"
                     type="email" 
                     value={email}
                     onChange={ handleEmailChange }
                 />
-                <label for='password'>Password </label>
+                <label htmlFor='password'>Password </label>
                 <input 
                     name='password'
                     type="password"  
