@@ -483,6 +483,7 @@ header {
 
 .clickedImageMainHeader{
   position: sticky;
+  top: 0;
 }
 .clickedImageMain{
   
@@ -516,8 +517,8 @@ header {
 
 
 .clickedImageMainPhoto{
-  width: 100%;
-  height: auto;
+  max-width: 100%;
+  max-height: auto;
   max-height: 85vh;
   object-fit: contain;
   margin: 2rem;
