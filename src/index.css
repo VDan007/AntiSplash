@@ -507,6 +507,29 @@ header {
   cursor: pointer;
 
 }
+
+.headerButtonDiv{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.headerButtonDiv button{
+  padding: 0.4rem;
+  background-color: black;
+  border: 1px solid white;
+  color: white;
+}
+
+.headerButtonDiv img{
+  height: 1.7em;
+}
+.headerButtonDiv img:hover,
+.headerButtonDiv button:hover{
+  transform: scale(1.2);
+}
+
 .clickedImageMain{
   
   display: flex;

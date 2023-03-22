@@ -39,7 +39,7 @@ function ClickedImage(props){
     
    //console.log(profile);
 
-    //client_id=aDoVNz0oe4OyiTv3FvuO3tOGZye5kVhJuZEUwcmsj7A
+    
 
     useEffect(
         ()=>{
@@ -90,10 +90,10 @@ function ClickedImage(props){
                             <a target="_blank" href={profile}>{avalible}</a>
                         </div>
                     </div>
-                    <div className="buttons">
+                    <div className="headerButtonDiv">
                         <img src="/heartWhite.svg" alt="" />
                         <img src="shoppingCart.svg" alt="" />
-                        <button>Download free</button>
+                        <button>Download</button>
                     </div>
                 </div>
                 <img className="clickedImageMainPhoto" src={photoBig} alt="" />
