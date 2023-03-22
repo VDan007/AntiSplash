@@ -78,7 +78,10 @@ function ClickedImage(props){
                  })}
             />
             <div className="sideDivL">
-                <img className="cliskedImageContainerArrowL" src="/arrow-left-s-line.svg" alt="" />
+                <img className="clickedImageContainerArrowL" src="/arrow-left-s-line.svg" alt="" />
+            </div>
+            <div className="sideDivR">
+                <img className="clickedImageContainerArrowR"  src="/arrow-right-s-line.svg" alt="" />
             </div>
 
             <div className='clickedImageMain'>
@@ -137,9 +140,7 @@ function ClickedImage(props){
                 </div>
             </div>
 
-            <div className="sideDivR">
-                <img className="cliskedImageContainerArrowR"  src="/arrow-right-s-line.svg" alt="" />
-            </div>
+            
            
             
         </div>
