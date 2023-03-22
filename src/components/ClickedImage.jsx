@@ -74,9 +74,33 @@ function ClickedImage(props){
                 <img className="clickedImageMainPhoto" src={photoBig} alt="" />
 
                 <dir className='clickedImageDescriptionDiv'>
-
+                    <div className='Views row'>
+                        <div>
+                            <h3>Views</h3>
+                            <p>1</p>
+                        </div>
+                        <div>
+                            <h3>Downloads</h3>
+                            <p>2</p>
+                        </div>
+                        <div>
+                            <h3>Featured in</h3>
+                            <p>Editorial</p>
+                        </div>
+                        <div>
+                            <button>Share</button>
+                            <button>Info</button>
+                            <button>...</button>
+                        </div>
+                    </div>
+                    <div className='pictureAdditionalInfo'>
+                        <p>location</p>
+                        <p>Published on</p>
+                        <p>Camera</p>
+                        <p>License</p>
+                    </div>
                 </dir>
-
+                <h2>Related  photos</h2>
                 <div className="clickedImageMorePicturesDiv">
                     {morePicturesToRender}
                 </div>

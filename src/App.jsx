@@ -13,7 +13,7 @@ import { ClickedImage } from './components/ClickedImage';
 
 function App() {
 
-  const {pictures,pictureOpen} = useContext(Context);
+  const {pictureOpen} = useContext(Context);
 
   return (
    

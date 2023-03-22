@@ -95,6 +95,7 @@ html, body {
   font-size: 1rem;
   background-color: white;
   color: lightgray;
+  max-width: 1200px;
 }
 
 .heroTextDiv input::placeholder{
