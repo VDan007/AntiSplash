@@ -4,15 +4,24 @@ import { Photo } from './Photo';
 
 function ClickedImage(props){
     const { setPictureOpen } = useContext(Context);
+    const [morePictures,setMorePictures] = useState([]);
+    const [moreInfo,setMoreInfo] = useState({
+        downloads: '',
+        location: '',
+    });
+    console.log(moreInfo);
     const picture = props.photo;
     const profilePicture = picture.user.profile_image.small;
     const name = picture.user.first_name + " " + picture.user.last_name;
     const avalible = picture.user.for_hire ? "Avalible for hire" : `${picture.user.instagram_username}`;
     const profile = picture.links.portfolio;
     const userName = picture.user.username;
-    const [morePictures,setMorePictures] = useState([]);
     const photoBig = picture.urls.regular; 
-
+    const views = moreInfo.views;
+    let downloads = moreInfo.downloads;
+    let location = moreInfo.location.name;
+    console.log(moreInfo);
+   
 
     //client_id=aDoVNz0oe4OyiTv3FvuO3tOGZye5kVhJuZEUwcmsj7A
 
@@ -21,7 +30,7 @@ function ClickedImage(props){
             /////get more info
             fetch(`https://api.unsplash.com/photos/${picture.id}?client_id=aDoVNz0oe4OyiTv3FvuO3tOGZye5kVhJuZEUwcmsj7A`)
             .then(data=>data.json())
-            .then(data=>console.log(data))
+            .then(data=>setMoreInfo(data))
 
             ////get additional pictures
             fetch(`https://api.unsplash.com/users/${userName}/photos?per_page=33&client_id=aDoVNz0oe4OyiTv3FvuO3tOGZye5kVhJuZEUwcmsj7A`)
@@ -29,7 +38,7 @@ function ClickedImage(props){
             .then(data=>setMorePictures(data));
             ////upscroll
             
-        },[picture]
+        },[]
     );
 
     const morePicturesToRender = morePictures.map(
@@ -74,33 +83,33 @@ function ClickedImage(props){
                 <img className="clickedImageMainPhoto" src={photoBig} alt="" />
 
                 <dir className='clickedImageDescriptionDiv'>
-                    <div className='Views row'>
-                        <div>
+                    <div className='viewsRow'>
+                        <div className='viewsRowDiv1'>
                             <h3>Views</h3>
-                            <p>1</p>
+                            <p>{views}</p>
                         </div>
-                        <div>
+                        <div className='viewsRowDiv1'>
                             <h3>Downloads</h3>
-                            <p>2</p>
+                            <p>{downloads}</p>
                         </div>
-                        <div>
+                        <div className='viewsRowDiv1'>
                             <h3>Featured in</h3>
                             <p>Editorial</p>
                         </div>
-                        <div>
+                        <div className='viewsRowDivBtnsContainer'>
                             <button>Share</button>
                             <button>Info</button>
                             <button>...</button>
                         </div>
                     </div>
                     <div className='pictureAdditionalInfo'>
-                        <p>location</p>
+                        <p>{location}</p>
                         <p>Published on</p>
                         <p>Camera</p>
                         <p>License</p>
                     </div>
+                    <h2>Related  photos</h2>
                 </dir>
-                <h2>Related  photos</h2>
                 <div className="clickedImageMorePicturesDiv">
                     {morePicturesToRender}
                 </div>
