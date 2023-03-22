@@ -8,6 +8,7 @@ function ClickedImage(props){
     const [moreInfo,setMoreInfo] = useState({
         downloads: '',
         location: '',
+        views: '',
     });
     console.log(moreInfo);
     const picture = props.photo;
@@ -17,7 +18,7 @@ function ClickedImage(props){
     const profile = picture.links.portfolio;
     const userName = picture.user.username;
     const photoBig = picture.urls.regular; 
-    const views = moreInfo.views;
+    let views = moreInfo.views;
     let downloads = moreInfo.downloads;
     let location = moreInfo.location.name;
     console.log(moreInfo);
