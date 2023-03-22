@@ -11,6 +11,11 @@ function ClickedImage(props){
         location: '',
         views: '',
         created_at: '',
+        user:{
+            links:{
+                html: ''
+            }
+        },
         exif:{
             make: '',
             model: '',
@@ -22,7 +27,7 @@ function ClickedImage(props){
     const profilePicture = picture.user.profile_image.small;
     const name = picture.user.first_name + " " + picture.user.last_name;
     const avalible = picture.user.for_hire ? "Avalible for hire" : `${picture.user.instagram_username}`;
-    const profile = picture.links.portfolio;
+    let profile = moreInfo.user.links.html;
     const userName = picture.user.username;
     const photoBig = picture.urls.regular; 
     let views = moreInfo.views;
@@ -32,7 +37,7 @@ function ClickedImage(props){
     let camera = moreInfo.exif.make + ',' + moreInfo.exif.model;
     let description = moreInfo.description;
     
-   
+   //console.log(profile);
 
     //client_id=aDoVNz0oe4OyiTv3FvuO3tOGZye5kVhJuZEUwcmsj7A
 
