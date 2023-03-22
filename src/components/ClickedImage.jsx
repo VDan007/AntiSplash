@@ -7,8 +7,15 @@ function ClickedImage(props){
     const [morePictures,setMorePictures] = useState([]);
     const [moreInfo,setMoreInfo] = useState({
         downloads: '',
+        description: '',
         location: '',
         views: '',
+        created_at: '',
+        exif:{
+            make: '',
+            model: '',
+        },
+        license: '',
     });
     console.log(moreInfo);
     const picture = props.photo;
@@ -21,7 +28,10 @@ function ClickedImage(props){
     let views = moreInfo.views;
     let downloads = moreInfo.downloads;
     let location = moreInfo.location.name;
-    console.log(moreInfo);
+    let pusblished = moreInfo.created_at.slice(0,10);
+    let camera = moreInfo.exif.make + ',' + moreInfo.exif.model;
+    let description = moreInfo.description;
+    
    
 
     //client_id=aDoVNz0oe4OyiTv3FvuO3tOGZye5kVhJuZEUwcmsj7A
@@ -104,12 +114,18 @@ function ClickedImage(props){
                         </div>
                     </div>
                     <div className='pictureAdditionalInfo'>
-                        <p>{location}</p>
-                        <p>Published on</p>
-                        <p>Camera</p>
-                        <p>License</p>
+                        <div>
+                            <p>{location}</p>
+                            <p>Published on: {pusblished}</p>
+                            <p>{camera}</p>
+                            <p>Free to use under the Unsplash License</p>
+                        </div>
+                        <div>
+                            <p>{description}</p>
+                        </div>
                     </div>
-                    <h2>Related  photos</h2>
+                        
+                    <h2 className="relatedPhotosH2">Related  photos</h2>
                 </dir>
                 <div className="clickedImageMorePicturesDiv">
                     {morePicturesToRender}

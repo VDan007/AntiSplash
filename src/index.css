@@ -520,6 +520,7 @@ header {
   height: auto;
   max-height: 85vh;
   object-fit: contain;
+  margin: 2rem;
 }
 
 .clickedImageMorePicturesDiv{
@@ -533,10 +534,12 @@ header {
 
 .clickedImageDescriptionDiv{
   padding: 0 1rem;
+  margin-bottom: 3rem;
 }
 .viewsRow{
   display: flex;
   gap: 8rem;
+  margin-bottom: 2rem;
   
   
 }
@@ -563,4 +566,12 @@ header {
   justify-content: center;
   align-items: center;
   border-radius: 4px;
+}
+
+.pictureAdditionalInfo{
+  display: flex;
+  gap: 3rem;
+}
+.relatedPhotosH2{
+  margin-top: 3rem;
 }
