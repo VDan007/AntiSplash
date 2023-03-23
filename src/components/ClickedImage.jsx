@@ -157,9 +157,9 @@ function ClickedImage(props){
                             <p>{description}</p>
                         </div>
                     </div>
-                        
-                    <h2 className="relatedPhotosH2">Related  photos</h2>
+                    
                 </dir>
+                <h2 className="relatedCollectionsTitle">Related  photos</h2>
                 <div className="clickedImageMorePicturesDiv">
                     {morePicturesToRender}
                 </div>
@@ -170,6 +170,7 @@ function ClickedImage(props){
                 <div className="collectionsDiv">
                     {collettionsToRender}
                 </div>
+                <div className="mainEnd"></div>
             </div>
             
             
