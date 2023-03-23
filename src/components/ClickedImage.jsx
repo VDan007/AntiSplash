@@ -1,4 +1,4 @@
-import { useContext , useEffect, useState} from "react";
+import { useContext , useEffect, useState, Suspense} from "react";
 import { Context } from '../Context';
 import { Photo } from './Photo';
 import { CollectionCard } from "./CollectionCard";
@@ -42,6 +42,17 @@ function ClickedImage(props){
     let pusblished = moreInfo.created_at.slice(0,10);
     let camera = moreInfo.exif.make + ',' + moreInfo.exif.model;
     let description = moreInfo.description;
+   // let collections = moreInfo.related_collections ? moreInfo.related_collections.results : [];
+    let collettionsToRender = moreInfo.related_collections.results ?
+                        moreInfo.related_collections.results.map(
+                                    collection => <CollectionCard
+                                                    collection={collection}
+                                                    key={collection.id}
+
+                                                  />
+                                )
+                                :
+                                '';
     
     
 
@@ -77,20 +88,11 @@ function ClickedImage(props){
     );
 
 
-    const collections = moreInfo.related_collections ? moreInfo.related_collections.results : [];
-    const collettionsToRender = collections ?
-                                collections.map(
-                                    collection => <CollectionCard
-                                                    collection={collection}
-                                                    key={collection.id}
-
-                                                  />
-                                )
-                                :
-                                '';
+    
                                 
 
     return(
+        
         <div className="cliskedImageContainer">
             <img className="cliskedImageContainerCloseBtn" 
                  src="/close-line.svg" 
@@ -161,6 +163,10 @@ function ClickedImage(props){
                 <div className="clickedImageMorePicturesDiv">
                     {morePicturesToRender}
                 </div>
+                <div>
+                    
+                </div>
+                <h2 className="relatedCollectionsTitle">Related collections</h2>
                 <div className="collectionsDiv">
                     {collettionsToRender}
                 </div>
@@ -170,6 +176,7 @@ function ClickedImage(props){
            
             
         </div>
+       
     );
 }
 

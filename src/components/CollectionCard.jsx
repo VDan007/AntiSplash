@@ -4,22 +4,47 @@ function CollectionCard(props){
 
 	console.log(props.collection);
 	const images = props.collection.preview_photos;
+	const title = props.collection.title;
+	const numberOfPhotos = props.collection.total_photos;
+	const currator = props.collection.user.name;
+	const tags = props.collection.tags;
+	const tagsToRender = tags.map(
+		tag=> <div className="tag">{tag.title}</div>
+	).slice(0,3);
+
 	const imagesToRender = images.map(
-		image=> <img 
+		(image, index)=>{ 
+			let classType = '';
+			switch(index){
+				case 0:
+					classType = 'firstPreviewImage';
+					break;
+				case 1:
+					classType = 'secondPreviewImage';
+					break;
+				case 2:
+					classType = 'thirdPreviewImage';
+					break;
+				default:
+					classType = '';
+					break;	
+
+			}
+			return	(  <img 
 					src={image.urls.small}
 					key={image.urls.small}
-					className='prewievImage'
-				/>
+					className= {classType}
+				/>)}
 	).slice(0,3);
 	return(
 		<div className="collectionCard">
 			<div className="collectionPicsDiv">
 				{imagesToRender}
 			</div>
-			<h2>collectionName</h2>
-			<p>photos currated</p>
+			<h2>{title}</h2>
+			<p>{numberOfPhotos} photos . Curated by {currator}</p>
 			<div className='collectionTags'>
-				tags
+				{tagsToRender}
 			</div>
         </div>
 	);
