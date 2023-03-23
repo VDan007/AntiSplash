@@ -30,7 +30,9 @@ html, body {
   color:#150605;
   
 }
-
+#root{
+  min-height: 100vh;
+}
 
 
 .header{
@@ -278,16 +280,15 @@ header {
 /* signIn */
 
 .signInContainer{
-  min-width: 100vw;
+  min-width: 100%;
   min-height: 100vh;
-  
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   background-color: black;
   color: white;
-  overflow-y: hidden;
+  overflow: hidden-y;
 }
 
 .signInDiv{

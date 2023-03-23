@@ -30,7 +30,7 @@ function ContextProvider({children}){
     const [ authUser, setAuthUser] = useState(null);
     const [pictureOpen,setPictureOpen] = useState({opened: false,
                                                    picture: {},});
-    document.body.style.overflowY = pictureOpen.opened ? 'hidden' : 'scroll';
+    document.body.style.overflowY = pictureOpen.opened ? 'hidden' : 'auto';
 
     
 
