@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useContext } from "react";
 import { Context } from "../Context";
+import { scroll } from './ClickedImage';
 
  function Photo(props){
         const [hovered,setHovered] = useState(false);
@@ -39,6 +40,7 @@ import { Context } from "../Context";
                                    opened: true,
                                    picture : props.data
                               });
+                              scroll();
                          }}
                     />
             </div>

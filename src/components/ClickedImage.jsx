@@ -2,6 +2,8 @@ import { useContext , useEffect, useState} from "react";
 import { Context } from '../Context';
 import { Photo } from './Photo';
 
+
+
 function ClickedImage(props){
     const { setPictureOpen } = useContext(Context);
     const [morePictures,setMorePictures] = useState([]);
@@ -37,7 +39,7 @@ function ClickedImage(props){
     let camera = moreInfo.exif.make + ',' + moreInfo.exif.model;
     let description = moreInfo.description;
     
-   //console.log(profile);
+    
 
     
 
@@ -52,7 +54,9 @@ function ClickedImage(props){
             fetch(`https://api.unsplash.com/users/${userName}/photos?per_page=33&client_id=aDoVNz0oe4OyiTv3FvuO3tOGZye5kVhJuZEUwcmsj7A`)
             .then(data=>data.json())
             .then(data=>setMorePictures(data));
+            
             ////upscroll
+           
             
         },[]
     );
@@ -66,6 +70,8 @@ function ClickedImage(props){
         }
             
     );
+
+    
 
     return(
         <div className="cliskedImageContainer">
@@ -147,4 +153,10 @@ function ClickedImage(props){
     );
 }
 
-export {ClickedImage }
+function scroll(){
+    if(document.getElementsByClassName('cliskedImageContainer')[0]){
+        document.getElementsByClassName('cliskedImageContainer')[0].scroll(0,0);   
+    }
+}
+
+export {ClickedImage, scroll }
