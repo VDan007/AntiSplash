@@ -8,8 +8,10 @@ function CollectionCard(props){
 	const numberOfPhotos = props.collection.total_photos;
 	const currator = props.collection.user.name;
 	const tags = props.collection.tags;
+	const url = props.collection.links.html;
+	console.log(url)
 	const tagsToRender = tags.map(
-		tag=> <div className="tag">{tag.title}</div>
+		tag=> <div key={tag.title} className="tag">{tag.title}</div>
 	).slice(0,3);
 
 	const imagesToRender = images.map(
@@ -37,16 +39,20 @@ function CollectionCard(props){
 				/>)}
 	).slice(0,3);
 	return(
-		<div className="collectionCard">
-			<div className="collectionPicsDiv">
-				{imagesToRender}
+		
+			<div className="collectionCard" 
+				 onClick={()=>window.open(url)}
+			>
+				<div className="collectionPicsDiv">
+					{imagesToRender}
+				</div>
+				<h2>{title}</h2>
+				<p>{numberOfPhotos} photos . Curated by {currator}</p>
+				<div className='collectionTags'>
+					{tagsToRender}
+				</div>
 			</div>
-			<h2>{title}</h2>
-			<p>{numberOfPhotos} photos . Curated by {currator}</p>
-			<div className='collectionTags'>
-				{tagsToRender}
-			</div>
-        </div>
+		
 	);
 }
 

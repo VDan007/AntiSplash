@@ -1,4 +1,4 @@
-import { useContext , useEffect, useState, Suspense} from "react";
+import { useContext , useEffect, useState} from "react";
 import { Context } from '../Context';
 import { Photo } from './Photo';
 import { CollectionCard } from "./CollectionCard";
@@ -28,31 +28,32 @@ function ClickedImage(props){
             
         }
     });
-    console.dir(moreInfo.related_collections.results);
+    
     const picture = props.photo;
     const profilePicture = picture.user.profile_image.small;
     const name = picture.user.first_name + " " + picture.user.last_name;
     const avalible = picture.user.for_hire ? "Avalible for hire" : `${picture.user.instagram_username}`;
-    let profile = moreInfo.user.links.html;
+    const profile = moreInfo.user.links.html;
     const userName = picture.user.username;
     const photoBig = picture.urls.regular; 
-    let views = moreInfo.views;
-    let downloads = moreInfo.downloads;
-    let location = moreInfo.location.name;
-    let pusblished = moreInfo.created_at.slice(0,10);
-    let camera = moreInfo.exif.make + ',' + moreInfo.exif.model;
-    let description = moreInfo.description;
-   // let collections = moreInfo.related_collections ? moreInfo.related_collections.results : [];
-    let collettionsToRender = moreInfo.related_collections.results ?
-                        moreInfo.related_collections.results.map(
-                                    collection => <CollectionCard
-                                                    collection={collection}
-                                                    key={collection.id}
+    const views = moreInfo.views;
+    const downloads = moreInfo.downloads;
+    const location = moreInfo.location.name;
+    const pusblished = moreInfo.created_at.slice(0,10);
+    const camera = moreInfo.exif.make + ',' + moreInfo.exif.model;
+    const description = moreInfo.description;
+    const collettionsToRender = moreInfo.related_collections.results ?
+    moreInfo.related_collections.results.map(
+                collection => <CollectionCard
+                                collection={collection}
+                                key={collection.id}
 
-                                                  />
-                                )
-                                :
-                                '';
+                              />
+            )
+            :
+            '';
+   
+   
     
     
 
@@ -88,11 +89,11 @@ function ClickedImage(props){
     );
 
 
-    
+   
                                 
 
     return(
-        
+       
         <div className="cliskedImageContainer">
             <img className="cliskedImageContainerCloseBtn" 
                  src="/close-line.svg" 
@@ -177,7 +178,7 @@ function ClickedImage(props){
            
             
         </div>
-       
+        
     );
 }
 
