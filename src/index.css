@@ -636,3 +636,55 @@ header {
 .relatedPhotosH2{
   margin-top: 3rem;
 }
+
+.collectionsDiv{
+  padding: 3rem 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  width: 100%;
+  height: auto;
+  border: 1px solid red;
+}
+.collectionCard{
+  border: 1px solid yellow;
+  width: 30%;
+  height: 100%;
+  min-height: 300px;
+  max-width: 400px;
+  min-width:300px;
+}
+.collectionPicsDiv{
+  border: 1px solid red;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+
+  
+}
+.prewievImage{
+  object-fit: cover;
+}
+
+.collectionPicsDiv:first-child{
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row: 1 / 2;
+  border: 1px solid green;
+ 
+}
+.collectionPicsDiv:nth-child(2){
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row: 1 / 1;
+  border: 1px solid red;
+  
+}
+.collectionPicsDiv:nth-child(3){
+  grid-column-start: 3;
+  grid-column-end: 3;
+  grid-row: 2 / 2;
+  border: 1px solid yellow;
+  
+}

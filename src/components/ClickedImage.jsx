@@ -1,6 +1,7 @@
 import { useContext , useEffect, useState} from "react";
 import { Context } from '../Context';
 import { Photo } from './Photo';
+import { CollectionCard } from "./CollectionCard";
 
 
 
@@ -23,8 +24,11 @@ function ClickedImage(props){
             model: '',
         },
         license: '',
+        related_collections:{
+            
+        }
     });
-    console.log(moreInfo);
+    console.dir(moreInfo.related_collections.results);
     const picture = props.photo;
     const profilePicture = picture.user.profile_image.small;
     const name = picture.user.first_name + " " + picture.user.last_name;
@@ -55,7 +59,8 @@ function ClickedImage(props){
             .then(data=>data.json())
             .then(data=>setMorePictures(data));
             
-            ////upscroll
+            ////getcollections
+
            
             
         },[]
@@ -71,7 +76,19 @@ function ClickedImage(props){
             
     );
 
-    
+
+    const collections = moreInfo.related_collections ? moreInfo.related_collections.results : [];
+    const collettionsToRender = collections ?
+                                collections.map(
+                                    collection => <CollectionCard
+                                                    collection={collection}
+                                                    key={collection.id}
+
+                                                  />
+                                )
+                                :
+                                '';
+                                
 
     return(
         <div className="cliskedImageContainer">
@@ -144,8 +161,11 @@ function ClickedImage(props){
                 <div className="clickedImageMorePicturesDiv">
                     {morePicturesToRender}
                 </div>
+                <div className="collectionsDiv">
+                    {collettionsToRender}
+                </div>
             </div>
-
+            
             
            
             
