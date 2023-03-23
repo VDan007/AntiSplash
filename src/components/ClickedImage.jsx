@@ -149,10 +149,25 @@ function ClickedImage(props){
                     </div>
                     <div className='pictureAdditionalInfo'>
                         <div>
-                            <p>{location}</p>
-                            <p>Published on: {pusblished}</p>
-                            <p>{camera}</p>
-                            <p>Free to use under the Unsplash License</p>
+                            <div className='additionalInfoSubDiv'> 
+                                <img src='/map-pin-line.svg'/>
+                                <p>{location}</p>
+                            </div>
+                            <div className='additionalInfoSubDiv'> 
+                                <img src='/calendar-line.svg'/>
+                                <p>Published on: {pusblished}</p>
+                            </div>
+                            <div className='additionalInfoSubDiv'> 
+                                <img src='/camera-line.svg'/>
+                                <p>{camera}</p>
+                            </div>
+                            <div className='additionalInfoSubDiv'> 
+                                <img src='/shield-check-line.svg'/>
+                                <p>Free to use under the Unsplash License</p>
+                            </div>
+                            
+                            
+                            
                         </div>
                         <div>
                             <p>{description}</p>
