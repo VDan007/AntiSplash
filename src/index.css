@@ -165,6 +165,7 @@ html, body {
   object-fit: cover;
   border-radius: 10px;
   transition-duration: 0.5s;
+  cursor: zoom-in;
 }
 
 .img002{
