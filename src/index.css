@@ -661,10 +661,12 @@ header {
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr;
 
+
   
 }
 .prewievImage{
   object-fit: cover;
+  max-width: 100%;
 }
 
 .collectionPicsDiv:first-child{
@@ -674,7 +676,7 @@ header {
   border: 1px solid green;
  
 }
-.collectionPicsDiv:nth-child(2){
+/* .collectionPicsDiv:nth-child(2){
   grid-column-start: 3;
   grid-column-end: 3;
   grid-row: 1 / 1;
@@ -687,4 +689,4 @@ header {
   grid-row: 2 / 2;
   border: 1px solid yellow;
   
-}
+} */
