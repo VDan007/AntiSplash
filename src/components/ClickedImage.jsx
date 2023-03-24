@@ -94,6 +94,7 @@ function ClickedImage(props){
    }
 
    
+   
 
    
 
@@ -132,7 +133,7 @@ function ClickedImage(props){
                         <img src="shoppingCart.svg" alt="" />
                         <button
                             onClick={dropdownToggle}
-                        >   Download
+                        >  {dropdownOpen ? 'Close' : 'Download'}
                         </button>
                        {dropdownOpen && <div className='headerButtonDropdown' 
                                              ref={dropdownMenuRef}

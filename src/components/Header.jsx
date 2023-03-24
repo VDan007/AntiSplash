@@ -10,7 +10,7 @@ import { AuthDetails } from "./firebase/auth/AuthDetails";
 
 function Header() {
     const {cartItems} = useContext(Context);
-    console.log(cartItems);
+    
     return (
         <header className="header">
             <Link to="/">
