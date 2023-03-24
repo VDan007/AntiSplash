@@ -1,16 +1,25 @@
 import React from "react";
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
+import { Context } from '../Context';
 
 
 function Hero(){
 
     const [bg,setBg] = useState("");
+    const {pictures} = useContext(Context);
 
     useEffect(
         ()=>{
-            fetch("https://api.unsplash.com/photos/random?client_id=aDoVNz0oe4OyiTv3FvuO3tOGZye5kVhJuZEUwcmsj7A")
-            .then(data=>data.json())
-            .then(data=>setBg(data.urls.regular))
+            try{
+                fetch("https://api.unsplash.com/photos/random?client_id=aDoVNz0oe4OyiTv3FvuO3tOGZye5kVhJuZEUwcmsj7A")
+                .then(data=>data.json())
+                .then(data=>setBg(data.urls.regular))
+            }
+            finally{
+                setBg(pictures[Math.floor(Math.random()+0)].urls.regular);
+               
+            }
+
         },[]
     );
 
