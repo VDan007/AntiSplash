@@ -1,15 +1,17 @@
-import { useRef, useEffect, useState } from "react";
+    import { useRef, useEffect, useState } from "react";
 
 
 
 
-function ButtonWithDropdownList(props){
-    const [showList,setShovList] = useState(false);
-    const listRef = useRef(null);
-    const [content,setContent] = useState(props.content);
-    
-        
-    
+
+    function ButtonWithDropdownList(props){
+        const [showList,setShovList] = useState(false);
+        const listRef = useRef(null);
+        const [content,setContent] = useState(props.content);
+      
+
+  
+
 
 
     function toggleList(){
@@ -63,11 +65,21 @@ function ShareList(){
 }
 
 function Info(){
+    const [joke,setJoke] = useState('');
+    useEffect(
+        ()=>{
+            fetch('https://api.chucknorris.io/jokes/random')
+            .then(resp=>resp.json())
+            .then(data=>setJoke(data.value))
+
+            } ,[]);
+
+
     return (
         <div
             className='infoDiv'
         >
-            info
+            {joke}
         </div>
     );
 }

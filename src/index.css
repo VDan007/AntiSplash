@@ -817,4 +817,10 @@ header {
   width:550%;
   height:650%;
   border: 1px dotted white;
+  background-color: rgba(1,1,1,0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0.4rem;
+  font-style: italic;
 }
