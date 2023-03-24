@@ -23,7 +23,7 @@ const db = getFirestore(app);
 const Context = createContext();  
 
 function ContextProvider({children}){
-
+    const [photoPages,setPhotoPages] = useState(3);
     const [pictures, setPictures] = useState([]);
     const [cartItems, setCartItems] = useState([]);
     const [ordering,setOrdering] = useState(false);
@@ -32,7 +32,7 @@ function ContextProvider({children}){
                                                    picture: {},});
     document.body.style.overflowY = pictureOpen.opened ? 'hidden' : 'auto';
 
-    
+    console.log(pictures);
 
     async function setUserData(email){
         await setDoc(doc(db,"users",email),{
@@ -85,18 +85,26 @@ function ContextProvider({children}){
     }
 
 
-    useEffect(
-    ()=>{
+    // useEffect(
+    //     ()=>{
+    //         fetch("https://api.unsplash.com/photos?per_page=33&client_id=aDoVNz0oe4OyiTv3FvuO3tOGZye5kVhJuZEUwcmsj7A")
+    //             .then(data=>data.json())
+    //             .then(data=>{
+    //                 setPictures(data)
+    //                 console.log(data)})
+    //     },[]);
 
-        
-        fetch("https://api.unsplash.com/photos?per_page=33&client_id=aDoVNz0oe4OyiTv3FvuO3tOGZye5kVhJuZEUwcmsj7A")
+    useEffect(  
+        ()=>{
+            fetch(`https://api.unsplash.com/photos?page=${photoPages}&client_id=aDoVNz0oe4OyiTv3FvuO3tOGZye5kVhJuZEUwcmsj7A`)
             .then(data=>data.json())
             .then(data=>{
-                setPictures(data)
-                console.log(data)})
-    },[]
-    );
-
+                const newArray = [...pictures];
+                data.forEach(item=>newArray.push(item));
+                setPictures(newArray)});
+        },[photoPages]);
+       
+    
 
 
     return (
@@ -113,6 +121,8 @@ function ContextProvider({children}){
                                   setUserData,
                                   pictureOpen,
                                   setPictureOpen,
+                                  setPhotoPages,
+                                  photoPages
                                   }}>
             {children}
         </Context.Provider>

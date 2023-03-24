@@ -2,12 +2,12 @@ import React from "react";
 import { useState, useContext } from "react";
 import { Photo } from "../components/Photo";
 import { Context} from "../Context";
-import { ClickedImage } from "../components/ClickedImage";
+
 
 
 function Photos() {
     
-    const {pictures,pictureOpen} = useContext(Context);
+    const {pictures,setPhotoPages} = useContext(Context);
   
 
     const imagesToRender = pictures.map(
@@ -24,7 +24,11 @@ function Photos() {
     return (
         <main className="photos">
             {imagesToRender}
-           
+            <button 
+                className="moreImageLoaderBtn"
+                onClick={()=> {setPhotoPages(prev=>prev+1)} } 
+                >Load more Images
+            </button>
         </main>
     )
 }

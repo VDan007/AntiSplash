@@ -79,7 +79,7 @@ function Info(){
         <div
             className='infoDiv'
         >
-            {joke}
+            <p>{joke}</p>
         </div>
     );
 }

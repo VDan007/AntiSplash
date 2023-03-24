@@ -824,3 +824,24 @@ header {
   padding: 0.4rem;
   font-style: italic;
 }
+
+.moreImageLoaderBtn{
+  width: 30%;
+  height: auto;
+  max-height: 340px;
+  min-height: 300px;
+  max-width: 400px;
+  min-width:300px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 2.2rem;
+  padding: 1rem;
+  background-color: white;
+  border:none;
+  transition-duration: 0.4s;
+}
+.moreImageLoaderBtn:hover{
+  background-color: black;
+  color: white;
+  border: 1px dotted white;
+}

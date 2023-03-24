@@ -7,7 +7,13 @@ import { ButtonWithDropdownList } from './ButtonWithDropdownList'
 
 
 function ClickedImage(props){
-    const { setPictureOpen } = useContext(Context);
+    const { setPictureOpen,pictures,pictureOpen } = useContext(Context);
+
+    console.log( 'pictures' + pictures[0].id);
+    console.log( 'openedPicture' + pictureOpen.picture.id);
+  
+
+
     const [morePictures,setMorePictures] = useState([]);
     const [moreInfo,setMoreInfo] = useState({
         downloads: '',
