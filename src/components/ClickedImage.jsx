@@ -1,4 +1,4 @@
-import { useContext , useEffect, useState} from "react";
+import { useContext , useEffect, useState, useRef} from "react";
 import { Context } from '../Context';
 import { Photo } from './Photo';
 import { CollectionCard } from "./CollectionCard";
@@ -28,7 +28,7 @@ function ClickedImage(props){
             
         }
     });
-    
+    const [dropdownOpen,setDropdownOpen] = useState(false);
     const picture = props.photo;
     const profilePicture = picture.user.profile_image.small;
     const name = picture.user.first_name + " " + picture.user.last_name;
@@ -52,7 +52,7 @@ function ClickedImage(props){
             )
             :
             '';
-   
+    const dropdownMenuRef = useRef(null);
    
     
     
@@ -89,7 +89,15 @@ function ClickedImage(props){
     );
 
 
+   function dropdownToggle(){
+        setDropdownOpen(prev=>!prev);    
+   }
+
    
+
+   
+
+  
                                 
 
     return(
@@ -122,7 +130,18 @@ function ClickedImage(props){
                     <div className="headerButtonDiv">
                         <img src="/heartWhite.svg" alt="" />
                         <img src="shoppingCart.svg" alt="" />
-                        <button>Download</button>
+                        <button
+                            onClick={dropdownToggle}
+                        >   Download
+                        </button>
+                       {dropdownOpen && <div className='headerButtonDropdown' 
+                                             ref={dropdownMenuRef}
+                                        >
+                            <a target='_blank' href={profile}>Small</a>
+                            <a target='_blank' href={profile}>Medium</a>
+                            <a target='_blank' href={profile}>Large</a>
+                            <a target='_blank' href={profile}>Original Size</a>
+                        </div>}
                     </div>
                 </div>
                 <img className="clickedImageMainPhoto" src={photoBig} alt="" />

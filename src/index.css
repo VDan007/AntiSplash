@@ -15,11 +15,13 @@
 
 a{
   text-decoration: none;
+  color: white;
 }
 a:visited{
   text-decoration: none;
   color: inherit;
 }
+
 
 
 
@@ -515,14 +517,37 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.7rem;
+  position: relative;
 }
 
 .headerButtonDiv button{
-  padding: 0.4rem;
+  padding: 0.4rem 0.9rem;
   background-color: black;
   border: 1px solid white;
   color: white;
+  transition-duration: 0.4s;
+}
+
+.headerButtonDropdown{
+  position: absolute;
+  bottom: -8.5rem;
+  right:0;
+  max-width: 100%;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px dotted white;
+  border-radius: 10px;
+  background: rgba(1,1,1,0.4);
+}
+.headerButtonDropdown a{
+  margin: 0.4rem;
+  cursor: pointer;
+}
+.headerButtonDropdown a:hover{
+  color: lightgray;
 }
 
 .headerButtonDiv img{
@@ -531,6 +556,8 @@ header {
 .headerButtonDiv img:hover,
 .headerButtonDiv button:hover{
   transform: scale(1.2);
+  background: white;
+  color:black;
 }
 
 .clickedImageMain{
@@ -737,3 +764,5 @@ header {
   height: 10vh;
   background-color: rgba(0,0,0,0);
 }
+
+
