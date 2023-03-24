@@ -34,7 +34,7 @@ function ButtonWithDropdownList(props){
     return(
         <div className="btnWithList">
 
-            {showList && <div ref={listRef} className="btnListShare">
+            {showList && <div ref={listRef} className="btnListDiv">
                             {content === 'shareList' && <ShareList/>}
                             {content === 'info' && <Info/>}
                             {content === 'report' && <Report/>}
@@ -52,7 +52,7 @@ function ButtonWithDropdownList(props){
 
 function ShareList(){
     return(
-        <ul>
+        <ul className='shareListul'>
             <li>Facebook</li>
             <li>Pinterest</li>
             <li>Twitter</li>
@@ -64,13 +64,19 @@ function ShareList(){
 
 function Info(){
     return (
-        <div>info</div>
+        <div
+            className='infoDiv'
+        >
+            info
+        </div>
     );
 }
 
 function Report(){
     return(
-        <p>Report</p>
+        <div className='reportDiv'>
+            Report
+        </div>
     );
 }
 
