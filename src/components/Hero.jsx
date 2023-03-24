@@ -10,15 +10,12 @@ function Hero(){
 
     useEffect(
         ()=>{
-            try{
+            
                 fetch("https://api.unsplash.com/photos/random?client_id=aDoVNz0oe4OyiTv3FvuO3tOGZye5kVhJuZEUwcmsj7A")
                 .then(data=>data.json())
                 .then(data=>setBg(data.urls.regular))
-            }
-            finally{
-                setBg(pictures[Math.floor(Math.random()+0)].urls.regular);
-               
-            }
+            
+            
 
         },[]
     );
