@@ -1,8 +1,15 @@
 import { useRef, useEffect, useState } from "react";
 
+
+
+
 function ButtonWithDropdownList(props){
     const [showList,setShovList] = useState(false);
     const listRef = useRef(null);
+    const [content,setContent] = useState(props.content);
+    
+        
+    
 
 
     function toggleList(){
@@ -14,8 +21,7 @@ function ButtonWithDropdownList(props){
             setShovList(false);
             console.log('should');
         }
-        // console.log('works');
-        // console.log(listRef.current);
+        
     }
 
     useEffect(
@@ -26,9 +32,13 @@ function ButtonWithDropdownList(props){
     );
 
     return(
-        <div className="btnwithList">
+        <div className="btnWithList">
 
-            {showList && <div ref={listRef}>list show</div>}
+            {showList && <div ref={listRef} className="btnListShare">
+                            {content === 'shareList' && <ShareList/>}
+                            {content === 'info' && <Info/>}
+                            {content === 'report' && <Report/>}
+                        </div>}
 
             <button
                 onClick = {toggleList}
@@ -38,5 +48,32 @@ function ButtonWithDropdownList(props){
         </div>
     );
 }
+
+
+function ShareList(){
+    return(
+        <ul>
+            <li>Facebook</li>
+            <li>Pinterest</li>
+            <li>Twitter</li>
+            <li>Email</li>
+            <li>Copy link</li>
+        </ul>
+    );
+}
+
+function Info(){
+    return (
+        <div>info</div>
+    );
+}
+
+function Report(){
+    return(
+        <p>Report</p>
+    );
+}
+
+
 
 export { ButtonWithDropdownList}

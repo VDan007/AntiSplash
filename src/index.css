@@ -767,4 +767,10 @@ header {
   background-color: rgba(0,0,0,0);
 }
 
-
+.btnWithList{
+  position: relative;
+}
+.btnListShare{
+  position: absolute;
+  top: -15px;
+}

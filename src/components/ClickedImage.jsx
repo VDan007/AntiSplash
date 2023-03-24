@@ -178,12 +178,15 @@ function ClickedImage(props){
                             
                             <ButtonWithDropdownList
                                 text='Share'
+                                content="shareList"
                             />
                             <ButtonWithDropdownList
                                 text='Info'
+                                content="info"
                             />
                             <ButtonWithDropdownList
                                 text='...'
+                                content="report"
                             />
                         </div>
                     </div>
