@@ -541,6 +541,7 @@ header {
   border: 1px dotted white;
   border-radius: 10px;
   background: rgba(1,1,1,0.4);
+  
 }
 .headerButtonDropdown a{
   margin: 0.4rem;
@@ -663,6 +664,7 @@ header {
   align-items: center;
   border-radius: 4px;
 }
+
 
 .pictureAdditionalInfo{
   display: flex;

@@ -2,6 +2,7 @@ import { useContext , useEffect, useState, useRef} from "react";
 import { Context } from '../Context';
 import { Photo } from './Photo';
 import { CollectionCard } from "./CollectionCard";
+import { ButtonWithDropdownList } from './ButtonWithDropdownList'
 
 
 
@@ -102,13 +103,10 @@ function ClickedImage(props){
 
    
    function elseClickHandler(e){
-        if(dropdownMenuRef.current&& !dropdownMenuRef.current.contains(e.target)){
+        if(dropdownMenuRef.current && e.target.innerText != 'Close' && !dropdownMenuRef.current.contains(e.target)){
 
             setDropdownOpen(false); 
-        }
-    //&& !dropdownMenuRef.current.contains(e.target)
-            //console.log(dropdownOpen )
-          
+        } 
    }
 
   
@@ -177,9 +175,16 @@ function ClickedImage(props){
                             <p>Editorial</p>
                         </div>
                         <div className='viewsRowDivBtnsContainer'>
-                            <button>Share</button>
-                            <button>Info</button>
-                            <button>...</button>
+                            
+                            <ButtonWithDropdownList
+                                text='Share'
+                            />
+                            <ButtonWithDropdownList
+                                text='Info'
+                            />
+                            <ButtonWithDropdownList
+                                text='...'
+                            />
                         </div>
                     </div>
                     <div className='pictureAdditionalInfo'>
