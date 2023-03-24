@@ -88,15 +88,30 @@ function ClickedImage(props){
             
     );
 
+    useEffect(
+        ()=>{
+            window.addEventListener('mousedown', elseClickHandler)
+            return ()=> window.removeEventListener('mousedown', elseClickHandler)
+        }
+    );
+
 
    function dropdownToggle(){
         setDropdownOpen(prev=>!prev);    
    }
 
    
-   
+   function elseClickHandler(e){
+        if(dropdownMenuRef.current&& !dropdownMenuRef.current.contains(e.target)){
 
-   
+            setDropdownOpen(false); 
+        }
+    //&& !dropdownMenuRef.current.contains(e.target)
+            //console.log(dropdownOpen )
+          
+   }
+
+  
 
   
                                 
