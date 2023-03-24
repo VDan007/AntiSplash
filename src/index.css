@@ -54,8 +54,11 @@ html, body {
   display: flex;
   align-items: center;
   gap: 0.5rem;
- 
 }
+.authdDetailsDiv > *{
+  color: white;
+} 
+
 
 .heroDiv{
   width: 100%;
@@ -665,6 +668,7 @@ header {
   height:350px;
   max-width: 400px;
   min-width:300px;
+  cursor: pointer;
 }
 .collectionPicsDiv{
   display: grid;

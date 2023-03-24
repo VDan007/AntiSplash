@@ -38,7 +38,7 @@ function AuthDetails(){
             :
 
             <>
-                <Link to="/login">
+                <Link  to="/login">
                     <p>Log in</p>
                 </Link>
                 <span> / </span>
