@@ -137,7 +137,7 @@ html, body {
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
-  
+  position: relative;
   
 }
 
@@ -825,7 +825,7 @@ header {
   font-style: italic;
 }
 
-.moreImageLoaderBtn{
+/* .moreImageLoaderBtn{
   width: 30%;
   height: auto;
   max-height: 340px;
@@ -844,4 +844,11 @@ header {
   background-color: black;
   color: white;
   border: 1px dotted white;
+} */
+
+.loadSignal{
+  position: absolute;
+  top: 90%;
+  width:0;
+  height:0
 }
