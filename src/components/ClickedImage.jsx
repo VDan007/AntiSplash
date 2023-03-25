@@ -82,7 +82,7 @@ function ClickedImage(props){
 
            
             
-        },[]
+        },[pictureOpen]
     );
 
     const morePicturesToRender = morePictures.map(
