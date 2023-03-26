@@ -2,14 +2,12 @@
 
 function CollectionCard(props){
 
-	console.log(props.collection);
 	const images = props.collection.preview_photos;
 	const title = props.collection.title;
 	const numberOfPhotos = props.collection.total_photos;
 	const currator = props.collection.user.name;
 	const tags = props.collection.tags;
 	const url = props.collection.links.html;
-	console.log(url)
 	const tagsToRender = tags.map(
 		tag=> <div key={tag.title} className="tag">{tag.title}</div>
 	).slice(0,3);

@@ -7,12 +7,12 @@ import { ButtonWithDropdownList } from './ButtonWithDropdownList'
 
 
 function ClickedImage(props){
-    const { setPictureOpen,pictures,pictureOpen } = useContext(Context);
+    const { setPictureOpen,pictures,pictureOpen,setPhotoPages } = useContext(Context);
 
     console.log( 'pictures' + pictures[0].id);
     console.log( 'openedPicture' + pictureOpen.picture.id);
-  
-
+    console.log( pictures.indexOf(pictures.find(pic=>pic.id=== pictureOpen.picture.id)) );
+   
 
     const [morePictures,setMorePictures] = useState([]);
     const [moreInfo,setMoreInfo] = useState({
@@ -116,7 +116,28 @@ function ClickedImage(props){
    }
 
   
+   function handloOnArrowClick(e){
+        const lengthOfLoadedPictureArray = pictures.length;
+        const IndexOfOpenedPicture = pictures.indexOf(pictures.find(pic=>pic.id=== pictureOpen.picture.id));
 
+        if(lengthOfLoadedPictureArray -2 == IndexOfOpenedPicture){
+            setPhotoPages(prev=>prev+1);
+        }
+
+        if(IndexOfOpenedPicture && e.target.classList.contains('clickedImageContainerArrowL')){
+            setPictureOpen(prev=>{ 
+                return{...prev,
+                        picture: pictures[IndexOfOpenedPicture -1]}
+            });
+
+        } else if(e.target.classList.contains('clickedImageContainerArrowR')){
+            
+            setPictureOpen(prev=>{ 
+                return{...prev,
+                        picture: pictures[IndexOfOpenedPicture +1]}
+            });
+        }
+   }
   
                                 
 
@@ -132,10 +153,20 @@ function ClickedImage(props){
                  })}
             />
             <div className="sideDivL">
-                <img className="clickedImageContainerArrowL" src="/arrow-left-s-line.svg" alt="" />
+                <img 
+                    className="clickedImageContainerArrowL" 
+                    src="/arrow-left-s-line.svg" 
+                    alt=""
+                    onClick={handloOnArrowClick}
+                />
             </div>
             <div className="sideDivR">
-                <img className="clickedImageContainerArrowR"  src="/arrow-right-s-line.svg" alt="" />
+                <img 
+                    className="clickedImageContainerArrowR"  
+                    src="/arrow-right-s-line.svg" 
+                    alt="" 
+                    onClick={handloOnArrowClick}
+                />
             </div>
 
             <div className='clickedImageMain'>
