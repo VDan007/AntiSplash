@@ -61,6 +61,7 @@ function ContextProvider({children}){
     }
 
     function toggleFavorite(id){
+        
     setPictures(prev=>prev.map(
         picture=>{
         if(picture.id !== id){
