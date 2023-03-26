@@ -23,7 +23,9 @@ const db = getFirestore(app);
 const Context = createContext();  
 
 function ContextProvider({children}){
-    const [photoPages,setPhotoPages] = useState(3);
+    const [search, setSearch] = useState(false);
+    const [searchTerm, setSearchTerm] = useState('');
+    const [photoPages,setPhotoPages] = useState(1);
     const [pictures, setPictures] = useState([]);
     const [cartItems, setCartItems] = useState([]);
     const [ordering,setOrdering] = useState(false);
@@ -32,7 +34,7 @@ function ContextProvider({children}){
                                                    picture: {},});
     document.body.style.overflowY = pictureOpen.opened ? 'hidden' : 'auto';
 
-    console.log(pictures);
+    console.log(search + '  ' + searchTerm);
 
     async function setUserData(email){
         await setDoc(doc(db,"users",email),{
@@ -97,13 +99,30 @@ function ContextProvider({children}){
 
     useEffect(  
         ()=>{
-            fetch(`https://api.unsplash.com/photos?page=${photoPages}&client_id=aDoVNz0oe4OyiTv3FvuO3tOGZye5kVhJuZEUwcmsj7A`)
-            .then(data=>data.json())
-            .then(data=>{
-                const newArray = [...pictures];
-                data.forEach(item=>newArray.push(item));
-                setPictures(newArray)});
-        },[photoPages]);
+            if(search){
+
+                fetch(`https://api.unsplash.com/search/photos?page=${photoPages}&query=${searchTerm}&client_id=aDoVNz0oe4OyiTv3FvuO3tOGZye5kVhJuZEUwcmsj7A`)
+                .then(data=>data.json())
+                 .then(data=>{
+                    const newArray = [...pictures];
+                    data.results.forEach(item=>newArray.push(item));
+                    setPictures(newArray)
+                //console.log(data);
+                });
+
+            
+
+            }else{
+
+                fetch(`https://api.unsplash.com/photos?page=${photoPages}&client_id=aDoVNz0oe4OyiTv3FvuO3tOGZye5kVhJuZEUwcmsj7A`)
+                .then(data=>data.json())
+                .then(data=>{
+                    const newArray = [...pictures];
+                    data.forEach(item=>newArray.push(item));
+                    setPictures(newArray)});
+
+            }
+        },[photoPages,search]);
        
     
 
@@ -123,7 +142,9 @@ function ContextProvider({children}){
                                   pictureOpen,
                                   setPictureOpen,
                                   setPhotoPages,
-                                  photoPages
+                                  photoPages,
+                                  setSearch,
+                                  setSearchTerm
                                   }}>
             {children}
         </Context.Provider>

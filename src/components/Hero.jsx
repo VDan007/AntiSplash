@@ -6,7 +6,8 @@ import { Context } from '../Context';
 function Hero(){
 
     const [bg,setBg] = useState("");
-    const {pictures} = useContext(Context);
+    const [searchInput,setSearchInput] = useState('');
+    const { setSearchTerm,setSearch } = useContext(Context);
     const inputRef = useRef(null);
     useEffect(
         ()=>{
@@ -23,7 +24,13 @@ function Hero(){
 
     function search(e){
        e.preventDefault();
-       console.log('search');
+       const queryTerm = searchInput
+                            .trim()
+                            .replace(' ','+');
+        
+       setSearchTerm(queryTerm);                     
+       setSearch(true);
+       
       
     }
 
@@ -36,8 +43,11 @@ function Hero(){
                 <form onSubmit={search}>
                     <span className="inputSpan">
                         <img className="inputIcon" src="/search-line.svg" alt="" />
-                            <input type="text" ref={inputRef}
-                                placeholder="Search high-resolution images" 
+                            <input type="text" 
+                                   ref={inputRef}
+                                   placeholder="Search high-resolution images" 
+                                   value = {searchInput}
+                                   onChange = {e=> setSearchInput(e.target.value) }
 
                             />
                     </span>
