@@ -7,7 +7,7 @@ function Hero(){
 
     const [bg,setBg] = useState("");
     const [searchInput,setSearchInput] = useState('');
-    const { setPictures,setSearch } = useContext(Context);
+    const { setPictures,setSearch,setSearchTerm } = useContext(Context);
     const inputRef = useRef(null);
     useEffect(
         ()=>{
@@ -30,8 +30,9 @@ function Hero(){
                             .replace(' ','+');
         
                             
-        setPictures([]);                 
-        setSearch(queryTerm);
+        setPictures([]);              
+        setSearch(true);
+        setSearchTerm(queryTerm);
         setSearchInput('');
         
       
