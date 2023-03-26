@@ -23,7 +23,7 @@ const db = getFirestore(app);
 const Context = createContext();  
 
 function ContextProvider({children}){
-    const [search, setSearch] = useState(false);
+    const [search, setSearch] = useState('');
     const [searchTerm, setSearchTerm] = useState('');
     const [photoPages,setPhotoPages] = useState(1);
     const [pictures, setPictures] = useState([]);
@@ -34,7 +34,8 @@ function ContextProvider({children}){
                                                    picture: {},});
     document.body.style.overflowY = pictureOpen.opened ? 'hidden' : 'auto';
 
-    console.log(search + '  ' + searchTerm);
+    console.log(search );
+    console.log(pictures);
 
     async function setUserData(email){
         await setDoc(doc(db,"users",email),{
@@ -96,6 +97,7 @@ function ContextProvider({children}){
     //                 setPictures(data)
     //                 console.log(data)})
     //     },[]);
+   
 
     useEffect(  
         ()=>{
@@ -129,6 +131,7 @@ function ContextProvider({children}){
 
     return (
         <Context.Provider value={{pictures,
+                                  setPictures,
                                   toggleFavorite,
                                   addToCart,
                                   cartItems,

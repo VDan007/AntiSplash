@@ -7,7 +7,7 @@ function Hero(){
 
     const [bg,setBg] = useState("");
     const [searchInput,setSearchInput] = useState('');
-    const { setSearchTerm,setSearch } = useContext(Context);
+    const { setPictures,setSearch } = useContext(Context);
     const inputRef = useRef(null);
     useEffect(
         ()=>{
@@ -24,13 +24,16 @@ function Hero(){
 
     function search(e){
        e.preventDefault();
+       
        const queryTerm = searchInput
                             .trim()
                             .replace(' ','+');
         
-       setSearchTerm(queryTerm);                     
-       setSearch(true);
-       
+                            
+        setPictures([]);                 
+        setSearch(queryTerm);
+        setSearchInput('');
+        
       
     }
 
