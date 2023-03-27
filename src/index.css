@@ -44,6 +44,16 @@ html, body {
   position: sticky;
   top:0;
   z-index: 10;
+  display: flex;
+  flex-direction: column;
+}
+
+.headerUpper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid red;
+  width: 100%;
 }
 
 .headerRightDiv{
@@ -60,6 +70,19 @@ html, body {
 .authdDetailsDiv > *{
   color: white;
 } 
+.headerCatergorySearchBar{
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid red;
+  width: 100%;
+}
+.headerCatergorySearchBarFix{
+  display: flex;
+  padding: 1rem 0;
+  padding-right: 1.5rem;
+  gap: 1.5rem;
+  border-right: 1px solid gray;
+}
 
 
 .heroDiv{
