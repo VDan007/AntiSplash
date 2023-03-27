@@ -39,6 +39,7 @@ html, body {
 
 .header{
   width: 100%;
+  max-width: 100%;
   height: 120px;
   background-color: black;
   position: sticky;
@@ -52,7 +53,6 @@ html, body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid red;
   width: 100%;
 }
 
@@ -73,15 +73,57 @@ html, body {
 .headerCatergorySearchBar{
   display: flex;
   justify-content: space-between;
-  border: 1px solid red;
+  align-items: center;
   width: 100%;
+  max-width: 100%;
+  gap: 1rem;
+  border: 1px solid red;
+  overflow: hidden;
+  
 }
 .headerCatergorySearchBarFix{
   display: flex;
-  padding: 1rem 0;
+  padding: 0.8rem 0;
   padding-right: 1.5rem;
   gap: 1.5rem;
   border-right: 1px solid gray;
+}
+.headerCatergorySearchBarCarusel{
+  display: flex;
+  max-width: 100%;
+  position: relative;
+}
+.ulContainer{
+  overflow-x: hidden;
+  border: 1px solid yellow;
+  width: 100%;
+  
+}
+.headerCatergorySearchBarCarusel ul{
+  display: flex;
+  gap: 1.4rem;
+  
+}
+.headerCatergorySearchBarCarusel ul li{
+white-space: nowrap;
+list-style: none;
+}
+
+.arrowDiv{
+  position: absolute;
+  top:0;
+  right: 0;
+  background-color: pink;
+  width: 1rem;
+
+}
+
+.aDl{
+ left:0;
+ 
+}
+.aDr{
+  right: 0;
 }
 
 
