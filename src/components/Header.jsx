@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "../Context";
@@ -11,6 +11,20 @@ import { AuthDetails } from "./firebase/auth/AuthDetails";
 function Header() {
     const {cartItems} = useContext(Context);
     const [carouselPosition,setCarouselPosition] = useState(0);
+    const caruoselRef = useRef(null);
+    
+    
+
+    function resetCarousel(){
+        setCarouselPosition(0);
+    }
+    useEffect(
+        ()=>{
+            window.addEventListener('resize',resetCarousel);
+           
+            return () => window.removeEventListener('resize',resetCarousel);
+        },[]
+    );
     
     return (
         <header className="header">
@@ -32,10 +46,13 @@ function Header() {
                     <p>Following</p>
                 </div>
                 <div className='arrowDiv aDl'>
-                    <img src="/arrow-left-s-line.svg" alt="" />
+                    {carouselPosition < 0 && <img src="/arrow-left-s-line.svg" 
+                         alt=""
+                         onClick={()=>setCarouselPosition(prev=>prev+ caruoselRef.current.clientWidth/6)}
+                    />}
                 </div>
                  <div className='headerCatergorySearchBarCarusel'>
-                        <ul style={{transform: `translate(${carouselPosition}rem)`}}>
+                        <ul ref={caruoselRef} style={{transform: `translate(${carouselPosition}px)`}}>
                             <li>Wallpapers</li>
                             <li>3D Renders</li>
                             <li>Travel</li>
@@ -58,7 +75,10 @@ function Header() {
                         </ul>
                 </div>
                 <div className='arrowDiv aDr'>
-                <img src="/arrow-right-s-line.svg" alt="" />
+                <img src="/arrow-right-s-line.svg" 
+                     alt=""
+                     onClick={()=>setCarouselPosition(prev=>prev-caruoselRef.current.clientWidth/6)}
+                />
                 </div>
                
             </div>
