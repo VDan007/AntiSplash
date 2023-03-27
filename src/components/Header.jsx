@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "../Context";
@@ -10,6 +10,7 @@ import { AuthDetails } from "./firebase/auth/AuthDetails";
 
 function Header() {
     const {cartItems} = useContext(Context);
+    const [carouselPosition,setCarouselPosition] = useState(0);
     
     return (
         <header className="header">
@@ -24,17 +25,17 @@ function Header() {
                     </Link>
                 </div>
             </div>
+
             <div className="headerCatergorySearchBar">
                 <div className="headerCatergorySearchBarFix">
                     <p>Editorial</p>
                     <p>Following</p>
                 </div>
-                
-                <div className='headerCatergorySearchBarCarusel'>
-                    <div className='arrowDiv aDl'>sf</div>
-                    <div className='arrowDiv aDr'>sdf</div>
-                    <div className="ulContainer">
-                        <ul>
+                <div className='arrowDiv aDl'>
+                    <img src="/arrow-left-s-line.svg" alt="" />
+                </div>
+                 <div className='headerCatergorySearchBarCarusel'>
+                        <ul style={{transform: `translate(${carouselPosition}rem)`}}>
                             <li>Wallpapers</li>
                             <li>3D Renders</li>
                             <li>Travel</li>
@@ -55,9 +56,11 @@ function Header() {
                             <li>Current Events</li>
                             <li>Arts & Culture</li>
                         </ul>
-
-                    </div>
                 </div>
+                <div className='arrowDiv aDr'>
+                <img src="/arrow-right-s-line.svg" alt="" />
+                </div>
+               
             </div>
         </header>
     )

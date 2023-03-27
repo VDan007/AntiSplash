@@ -71,14 +71,13 @@ html, body {
   color: white;
 } 
 .headerCatergorySearchBar{
-  display: flex;
-  justify-content: space-between;
+  display:flex;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
-  max-width: 100%;
+  max-width: 100vw;
   gap: 1rem;
-  border: 1px solid red;
-  overflow: hidden;
+  border: 5px solid orange;
   
 }
 .headerCatergorySearchBarFix{
@@ -89,19 +88,16 @@ html, body {
   border-right: 1px solid gray;
 }
 .headerCatergorySearchBarCarusel{
-  display: flex;
-  max-width: 100%;
-  position: relative;
-}
-.ulContainer{
-  overflow-x: hidden;
-  border: 1px solid yellow;
   width: 100%;
+  overflow: hidden;
+ 
   
 }
+
 .headerCatergorySearchBarCarusel ul{
   display: flex;
-  gap: 1.4rem;
+  gap: 1rem;
+  
   
 }
 .headerCatergorySearchBarCarusel ul li{
@@ -110,21 +106,21 @@ list-style: none;
 }
 
 .arrowDiv{
-  position: absolute;
-  top:0;
-  right: 0;
-  background-color: pink;
-  width: 1rem;
-
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
 }
 
-.aDl{
- left:0;
- 
-}
 .aDr{
-  right: 0;
+  margin-left: auto;
+  
 }
+
+
+
+
+
 
 
 .heroDiv{
