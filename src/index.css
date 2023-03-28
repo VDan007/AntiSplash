@@ -75,6 +75,10 @@ html, body {
   max-width: 1200px;
 }
 
+.headerUpperInputContainer input::placeholder{
+  color: lightgray;
+}
+
 
 .headerRightDiv{
   display: flex;
