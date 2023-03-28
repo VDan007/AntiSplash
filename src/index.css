@@ -85,6 +85,13 @@ html, body {
   gap: 1.5rem;
   border-right: 1px solid gray;
 }
+
+.headerCatergorySearchBarFix p{
+  cursor: pointer;
+}
+.headerCatergorySearchBarFix p:hover{
+  color: lightgray;
+}
 .headerCatergorySearchBarCarusel{
   width: 100%;
   overflow: hidden;
@@ -103,8 +110,11 @@ html, body {
 .headerCatergorySearchBarCarusel ul li{
 white-space: nowrap;
 list-style: none;
+cursor: pointer;
 }
-
+.headerCatergorySearchBarCarusel ul li:hover{
+  color: lightgray;
+}
 .arrowDiv{
   display: flex;
   justify-content: center;

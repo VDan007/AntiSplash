@@ -30,8 +30,8 @@ function Hero(){
                             .replace(' ','+');
         
                             
-        setPictures([]);              
-        setSearch(true);
+        setPictures([]);         
+        setSearch(queryTerm);
         setSearchTerm(queryTerm);
         setSearchInput('');
         
