@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { Context } from "../Context";
 import { AuthDetails } from "./firebase/auth/AuthDetails";
+import { ImageSearchForm } from "./ImageSearchForm";
 
 
 
@@ -44,6 +45,9 @@ function Header() {
                 <Link to="/">
                 <img src="/unsplash-fill.svg" className="logoImg" alt="" />
                 </Link>
+                <div className="headerUpperInputContainer">
+                    <ImageSearchForm/>
+                </div>
                 <div className="headerRightDiv">
                     <AuthDetails/>
                     <Link to="/cart">
