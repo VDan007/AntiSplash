@@ -13,7 +13,6 @@ function Header() {
     const {cartItems} = useContext(Context);
     const [carouselPosition,setCarouselPosition] = useState(0);
     const caruoselRef = useRef(null);
-    const carouselLast = useRef(null);
     const [rightArrowClickCounter, setRightArrowClickCoounter] = useState(0);
     
    
@@ -92,7 +91,7 @@ function Header() {
                             <li>Athletics</li>
                             <li>Health & Wellness</li>
                             <li>Current Events</li>
-                            <li ref={carouselLast}>Arts & Culture</li>
+                            <li>Arts & Culture</li>
                         </ul>
                 </div>
                {(rightArrowClickCounter == 0 || rightArrowClickCounter +1 < scrollCarousel()) && <div className='arrowDiv aDr'>
