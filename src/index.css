@@ -104,7 +104,8 @@ html, body {
   display: flex;
   width:100%;
   gap: 1rem;
-  
+  transition-duration: 1.5s;
+  transition-property: all;
   
 }
 .headerCatergorySearchBarCarusel ul li{
