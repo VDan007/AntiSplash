@@ -10,7 +10,7 @@ import { ImageSearchForm } from "./ImageSearchForm";
 
 
 function Header() {
-    const {cartItems} = useContext(Context);
+    const {cartItems,setSearch,setSearchTerm,setPictures} = useContext(Context);
     const [carouselPosition,setCarouselPosition] = useState(0);
     const caruoselRef = useRef(null);
     const [rightArrowClickCounter, setRightArrowClickCoounter] = useState(0);
@@ -24,13 +24,49 @@ function Header() {
     useEffect(
         ()=>{
 
-
+            
 
             window.addEventListener('resize',resetCarousel);
-           
             return () => window.removeEventListener('resize',resetCarousel);
         },[]
     );
+
+   
+    const carouselElementNames = [
+                            "Wallpapers",
+                            "3D Renders",
+                            "Travel",
+                            "Nature",
+                            "Street Photography",
+                            "Experimental",
+                            "Textures & Patterns",
+                            "Animals",
+                            "Architectures & Interiors",
+                            "Fashion & Beauty",
+                            "Film",
+                            "Food & Drink",
+                            "People",
+                            "Spirituality",
+                            "Business & Work",
+                            "Athletics",
+                            "Health & Wellness",
+                            "Current Events",
+                            "Arts & Culture",
+    ];
+
+    const carousElementsToRender = carouselElementNames.map(
+        (item)=> {
+            const queryTerm = item
+            .trim()
+            .replace(' ','+');
+        return(<li
+                 onClick={ ()=>{setPictures([]);  
+                                setSearch(queryTerm); 
+                                setSearchTerm(queryTerm)}}
+                 key = {item}
+               >{item}</li>)}
+    );
+
 
     function scrollCarousel(){
         const totalScrolls = caruoselRef.current.scrollWidth / caruoselRef.current.clientWidth;
@@ -73,25 +109,7 @@ function Header() {
                 </div>
                  <div className='headerCatergorySearchBarCarusel'>
                         <ul ref={caruoselRef} style={{transform: `translate(${carouselPosition}px)`}}>
-                            <li>Wallpapers</li>
-                            <li>3D Renders</li>
-                            <li>Travel</li>
-                            <li>Nature</li>
-                            <li>Street Photography</li>
-                            <li>Experimental</li>
-                            <li>Textures & Patterns</li>
-                            <li>Animals</li>
-                            <li>Architectures & Interiors</li>
-                            <li>Fashion & Beauty</li>
-                            <li>Film</li>
-                            <li>Food & Drink</li>
-                            <li>People</li>
-                            <li>Spirituality</li>
-                            <li>Business & Work</li>
-                            <li>Athletics</li>
-                            <li>Health & Wellness</li>
-                            <li>Current Events</li>
-                            <li>Arts & Culture</li>
+                            {carousElementsToRender}
                         </ul>
                 </div>
                {(rightArrowClickCounter == 0 || rightArrowClickCounter +1 < scrollCarousel()) && <div className='arrowDiv aDr'>
