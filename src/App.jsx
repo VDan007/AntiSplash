@@ -6,6 +6,7 @@ import { Photos } from "./pages/Photos"
 import { Hero } from "./components/Hero";
 import { Context } from "./Context";
 import { ClickedImage } from './components/ClickedImage';
+import { PopUp } from './components/PopUp'; 
 
 
 
@@ -13,13 +14,14 @@ import { ClickedImage } from './components/ClickedImage';
 
 function App() {
 
-  const {pictureOpen,search} = useContext(Context);
+  const {pictureOpen,search,showPopUp} = useContext(Context);
 
   return (
    
       <div className="App">
         
           <Header />
+        {showPopUp && <PopUp/>}
          {!search && <Hero/>}
           <Outlet/>
           <Photos/>

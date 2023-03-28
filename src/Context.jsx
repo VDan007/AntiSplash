@@ -23,6 +23,7 @@ const db = getFirestore(app);
 const Context = createContext();  
 
 function ContextProvider({children}){
+    const [showPopUp,setShowPopUp] =useState(true);
     const [search, setSearch] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
     const [photoPages,setPhotoPages] = useState(1);
@@ -148,7 +149,9 @@ function ContextProvider({children}){
                                   photoPages,
                                   search,
                                   setSearch,
-                                  setSearchTerm
+                                  setSearchTerm,
+                                  showPopUp,
+                                  setShowPopUp,
                                   }}>
             {children}
         </Context.Provider>
