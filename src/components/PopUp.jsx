@@ -15,7 +15,7 @@ function PopUp(){
             </h2>
             <p>If images are not loading as expected, please check the site 
                 again in around an hour, the API is in demo mode and will not 
-                asnwer kindly for more than 50 request/hour.
+                answer kindly for more than 50 request/hour.
             </p>
             <button
                 onClick={()=>setShowPopUp(false)}
