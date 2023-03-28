@@ -146,6 +146,7 @@ function ContextProvider({children}){
                                   setPictureOpen,
                                   setPhotoPages,
                                   photoPages,
+                                  search,
                                   setSearch,
                                   setSearchTerm
                                   }}>

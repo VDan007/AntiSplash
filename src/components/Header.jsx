@@ -77,7 +77,7 @@ function Header() {
     return (
         <header className="header">
             <div className="headerUpper">
-                <Link to="/">
+                <Link onClick={()=>{setPictures([]);setSearch('')}} to="/">
                 <img src="/unsplash-fill.svg" className="logoImg" alt="" />
                 </Link>
                 <div className="headerUpperInputContainer">

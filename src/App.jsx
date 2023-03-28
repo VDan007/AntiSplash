@@ -13,14 +13,14 @@ import { ClickedImage } from './components/ClickedImage';
 
 function App() {
 
-  const {pictureOpen} = useContext(Context);
+  const {pictureOpen,search} = useContext(Context);
 
   return (
    
       <div className="App">
         
           <Header />
-          <Hero/>
+         {!search && <Hero/>}
           <Outlet/>
           <Photos/>
           {pictureOpen.opened && <ClickedImage
