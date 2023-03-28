@@ -13,11 +13,13 @@ function Header() {
     const [carouselPosition,setCarouselPosition] = useState(0);
     const caruoselRef = useRef(null);
     const carouselLast = useRef(null);
+    const [rightArrowClickCounter, setRightArrowClickCoounter] = useState(0);
     
-    //console.dir(caruoselRef.current);
+   
 
     function resetCarousel(){
         setCarouselPosition(0);
+        setRightArrowClickCoounter(0);
     }
     useEffect(
         ()=>{
@@ -31,11 +33,10 @@ function Header() {
     );
 
     function scrollCarousel(){
-        console.log('wokrsd');
         const totalScrolls = caruoselRef.current.scrollWidth / caruoselRef.current.clientWidth;
-        return 2
-        //Math.ceil(totalScrolls);2
+        return Math.ceil(totalScrolls)
     }
+    
     
     return (
         <header className="header">
@@ -59,11 +60,12 @@ function Header() {
                 <div className='arrowDiv aDl'>
                     {carouselPosition < 0 && <img src="/arrow-left-s-line.svg" 
                          alt=""
-                         onClick={()=>setCarouselPosition(prev=>{
+                         onClick={()=>{setCarouselPosition(prev=>{
                             if(prev+caruoselRef.current.scrollWidth/7 > 0){
                                 return 0;
                             }else{ 
-                                return prev+ caruoselRef.current.scrollWidth/7 }})}
+                                return prev+ caruoselRef.current.scrollWidth/scrollCarousel() }})
+                                setRightArrowClickCoounter(prev=>prev-1)}}
                     />}
                 </div>
                  <div className='headerCatergorySearchBarCarusel'>
@@ -89,13 +91,14 @@ function Header() {
                             <li ref={carouselLast}>Arts & Culture</li>
                         </ul>
                 </div>
-                <div className='arrowDiv aDr'>
+               {(rightArrowClickCounter == 0 || rightArrowClickCounter +1 < scrollCarousel()) && <div className='arrowDiv aDr'>
                 <img src="/arrow-right-s-line.svg" 
                      alt=""
-                     onClick={()=>setCarouselPosition(prev=>
-                        prev-caruoselRef.current.scrollWidth/scrollCarousel())}
+                     onClick={()=>{setCarouselPosition(prev=>prev-caruoselRef.current.scrollWidth/scrollCarousel());
+                        setRightArrowClickCoounter(prev=>prev+1);}
+                    }
                 />
-                </div>
+                </div>}
                
             </div>
         </header>
