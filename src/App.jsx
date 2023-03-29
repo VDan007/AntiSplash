@@ -17,23 +17,18 @@ function App() {
   const {pictureOpen,search,showPopUp} = useContext(Context);
 
   return (
-   
       <div className="App">
-        
           <Header />
-        {showPopUp && <PopUp/>}
-         {!search && <Hero/>}
+          {showPopUp && <PopUp/>}
+          {!search && <Hero/>}
           <Outlet/>
           <Photos/>
           {pictureOpen.opened && <ClickedImage
                                     photo={pictureOpen.picture}
-                                  />}
+          />}
           
           
-      </div>
-   
-    
-  )
+      </div>);
 }
 
 export  {App};
