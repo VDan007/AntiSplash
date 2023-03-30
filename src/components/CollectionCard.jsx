@@ -9,8 +9,7 @@ function CollectionCard(props){
 	const tags = props.collection.tags;
 	const url = props.collection.links.html;
 	const tagsToRender = tags.map(
-		tag=> <div key={tag.title} className="tag">{tag.title}</div>
-	).slice(0,3);
+			tag=> <div key={tag.title} className="tag">{tag.title}</div>).slice(0,3);
 
 	const imagesToRender = images.map(
 		(image, index)=>{ 
@@ -30,14 +29,16 @@ function CollectionCard(props){
 					break;	
 
 			}
-			return	(  <img 
+
+			return	( <img 
 					src={image.urls.small}
 					key={image.urls.small}
 					className= {classType}
-				/>)}
+					/>)}
 	).slice(0,3);
+
+
 	return(
-		
 			<div className="collectionCard" 
 				 onClick={()=>window.open(url)}
 			>
