@@ -943,11 +943,7 @@ header {
   border:none;
   transition-duration: 0.4s;
 }
-.moreImageLoaderBtn:hover{
-  background-color: black;
-  color: white;
-  border: 1px dotted white;
-} */
+
 
 .loadSignal{
   position: absolute;
