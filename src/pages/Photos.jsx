@@ -40,4 +40,4 @@ function Photos() {
     )
 }
 
-export  {Photos}
+export  {Photos};
