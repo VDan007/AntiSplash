@@ -968,3 +968,9 @@ header {
   color: white;
   border-radius: 20px;
 }
+
+.loadSignal{
+  position: absolute;
+  left:0;
+  top: 80%;
+}
