@@ -29,7 +29,9 @@ function AuthDetails(){
     return(
         <div className='authdDetailsDiv'>{authUser ? 
             <>
-                <p>{authUser.email}</p> 
+                <Link to='/account'>
+                    <p>{authUser.email}</p> 
+                </Link>
                 <button onClick={userSignOut}>
                         Sign Out 
                 </button>

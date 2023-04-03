@@ -8,6 +8,7 @@ import  Cart  from "./pages/Cart"
 import { ContextProvider } from './Context';
 import { SignIn } from './components/firebase/auth/SignIn';
 import { SignUp } from './components/firebase/auth/SignUp';
+import { Account } from './pages/Account'
 
 const router = createBrowserRouter([
   {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
   { path:"/join",
     element: <SignUp/>
   },
+  {
+    path:"/account",
+    element: <Account/>
+  }
   
   
 ]);
