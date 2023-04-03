@@ -1,15 +1,17 @@
-import React from "react";
-import { doc,setDoc } from "firebase/firestore";
 
- async function setUserData(db,email){
-    await setDoc(doc(db,"users",email),{
+
+import { Context } from '../../../Context';
+import { useContext } from 'react';
+
+
+
+function addUserToDatabase(email,name){
+    const {db} = useContext(Context);
+    set(ref(db,'users/' + email),{
+        username: name,
         email: email,
-        favorited: [],
-        purchased: [],
-        cart:[],
-        soul: false,
-
+        likedPictures :[],
     });
+
 }
 
-export { setUserData }

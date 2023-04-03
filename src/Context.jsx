@@ -2,7 +2,8 @@ import React, { useState, useEffect} from "react";
 import { createContext } from "react";
 import { initializeApp} from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { doc,setDoc,getFirestore } from "firebase/firestore";
+import { getDatabase, ref, set,push } from 'firebase/database';
+
 
 
 
@@ -10,6 +11,7 @@ import { doc,setDoc,getFirestore } from "firebase/firestore";
 const firebaseConfig = {
     apiKey: "AIzaSyC2JR_jafKyxpbpJ3_d_YeyTsZoPt19ny4",
     authDomain: "scrimbaecommerce.firebaseapp.com",
+    databaseURL: "https://scrimbaecommerce-default-rtdb.europe-west1.firebasedatabase.app",
     projectId: "scrimbaecommerce",
     storageBucket: "scrimbaecommerce.appspot.com",
     messagingSenderId: "89224375686",
@@ -18,8 +20,7 @@ const firebaseConfig = {
 
 const app = initializeApp(firebaseConfig);  
 const auth = getAuth(app);
-const db = getFirestore(app);
-
+const db = getDatabase(app);
 const Context = createContext();  
 
 function ContextProvider({children}){
@@ -35,18 +36,20 @@ function ContextProvider({children}){
                                                    picture: {},});
     document.body.style.overflowY = pictureOpen.opened ? 'hidden' : 'auto';
 
-    console.log(search );
-    console.log(pictures);
+    
 
-    async function setUserData(email){
-        await setDoc(doc(db,"users",email),{
+
+
+     function setUserData(email,uid){
+        set(ref(db,'users/' + uid),{
             email: email,
-            favorited: [],
-            purchased: [],
-            cart:[],
-            soul: false,
+            likedPictures :[],
+            purchases: [],
+            inCart:[],
 
-        });
+       });
+
+
         
         
     }
@@ -90,14 +93,7 @@ function ContextProvider({children}){
     }
 
 
-    // useEffect(
-    //     ()=>{
-    //         fetch("https://api.unsplash.com/photos?per_page=33&client_id=aDoVNz0oe4OyiTv3FvuO3tOGZye5kVhJuZEUwcmsj7A")
-    //             .then(data=>data.json())
-    //             .then(data=>{
-    //                 setPictures(data)
-    //                 console.log(data)})
-    //     },[]);
+   
    
 
     useEffect(  
@@ -139,6 +135,7 @@ function ContextProvider({children}){
                                   removeFromCart,
                                   placeOrder,
                                   ordering,
+                                  db,
                                   auth,
                                   authUser,
                                   setAuthUser,

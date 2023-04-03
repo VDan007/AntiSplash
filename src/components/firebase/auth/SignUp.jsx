@@ -37,9 +37,11 @@ function SignUp(){
         e.preventDefault();
         createUserWithEmailAndPassword(auth,email,password)
         .then ( (userCredential) => {
-            console.log(userCredential);
-        }).catch((error)=> console.log(error))
-        setUserData(email);
+                    setUserData(email,userCredential.user.uid);
+                    console.log(userCredential.user.uid)
+                })
+        .catch((error)=> console.log(error))
+      
     }
 
     
