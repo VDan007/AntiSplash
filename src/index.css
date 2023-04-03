@@ -95,6 +95,16 @@ html, body {
 .authdDetailsDiv > *{
   color: white;
 } 
+.authdDetailsDiv button {
+  border:none;
+  background-color: black;
+  cursor: pointer;
+}
+
+.authdDetailsDiv button:hover{
+  color: lightgray;
+}
+
 .headerCatergorySearchBar{
   display:flex;
   justify-content: flex-start;
@@ -615,6 +625,8 @@ header {
   cursor: pointer;
 
 }
+
+
 
 .headerButtonDiv{
   display: flex;
