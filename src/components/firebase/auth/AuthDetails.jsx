@@ -4,13 +4,15 @@ import { Context } from "../../../Context";
 import { Link } from "react-router-dom";
 
 function AuthDetails(){
-    const { auth,authUser,setAuthUser } = useContext(Context);
+    const { auth,authUser,setAuthUser ,setUid } = useContext(Context);
     
 
     useEffect(()=>{
         const listen = onAuthStateChanged(auth,(user)=>{
             if(user){
                 setAuthUser(user)
+                setUid(user.uid)
+                console.log(user.uid);
             }else{
                 setAuthUser(null);
             }

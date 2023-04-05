@@ -2,7 +2,7 @@ import React, { useState, useEffect} from "react";
 import { createContext } from "react";
 import { initializeApp} from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getDatabase, ref, set,push } from 'firebase/database';
+import { getDatabase, ref, set,update,get,push } from 'firebase/database';
 
 
 
@@ -24,6 +24,8 @@ const db = getDatabase(app);
 const Context = createContext();  
 
 function ContextProvider({children}){
+    
+    const [uid,setUid] = useState('');
     const [showPopUp,setShowPopUp] =useState(true);
     const [search, setSearch] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
@@ -36,21 +38,18 @@ function ContextProvider({children}){
                                                    picture: {},});
     document.body.style.overflowY = pictureOpen.opened ? 'hidden' : 'auto';
 
-    
-
+  
+    console.log(auth);
 
 
      function setUserData(email,uid){
         set(ref(db,'users/' + uid),{
             email: email,
-            likedPictures :[],
-            purchases: [],
-            inCart:[],
+       });  
+    }
 
-       });
-
-
-        
+    function likePicture(uid,pictureId){
+        set(ref(db,`users/${uid}/${pictureId}`));
         
     }
 
@@ -68,17 +67,14 @@ function ContextProvider({children}){
     }
 
     function toggleFavorite(id){
+
+         
+        push(ref(db,`users/${uid}/liked/`),{
+            id
+        });
         
-    setPictures(prev=>prev.map(
-        picture=>{
-        if(picture.id !== id){
-            return picture;
-        }else{
-            return {...picture,
-                    isFavorite : !picture.isFavorite}
-        }
-        }
-    ));}
+   
+    }
 
     function placeOrder(){
         if(cartItems.length > 0){
@@ -122,6 +118,9 @@ function ContextProvider({children}){
 
             }
         },[photoPages,search]);
+
+
+
        
     
 
@@ -149,6 +148,8 @@ function ContextProvider({children}){
                                   setSearchTerm,
                                   showPopUp,
                                   setShowPopUp,
+                                  uid,
+                                  setUid,
                                   }}>
             {children}
         </Context.Provider>

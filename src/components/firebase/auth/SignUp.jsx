@@ -38,7 +38,7 @@ function SignUp(){
         createUserWithEmailAndPassword(auth,email,password)
         .then ( (userCredential) => {
                     setUserData(email,userCredential.user.uid);
-                    console.log(userCredential.user.uid)
+                    
                 })
         .catch((error)=> console.log(error))
       
