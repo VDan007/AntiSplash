@@ -104,7 +104,7 @@ function ContextProvider({children}){
                 .then(data=>data.json())
                 .then(data=>{
                     const newArray = [...pictures];
-                    console.log(newArray);
+                    
                     data.forEach(item=>{
                         if(newArray.every(pic=>pic.alt_description !== item.alt_description)){
                         newArray.push(item)}
@@ -124,6 +124,7 @@ function ContextProvider({children}){
         <Context.Provider value={{pictures,
                                   setPictures,
                                   toggleFavorite,
+                                  likedPictures,
                                   db,
                                   auth,
                                   authUser,
