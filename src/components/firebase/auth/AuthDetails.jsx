@@ -13,6 +13,9 @@ function AuthDetails(){
                 setAuthUser(user)
                 setUid(user.uid)
                 console.log(user.uid);
+                
+                   
+               
             }else{
                 setAuthUser(null);
             }

@@ -2,7 +2,7 @@ import React, { useState, useEffect} from "react";
 import { createContext } from "react";
 import { initializeApp} from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getDatabase, ref, set,update,get,push } from 'firebase/database';
+import { getDatabase, ref, set,update,get,push, onValue } from 'firebase/database';
 
 
 
@@ -24,7 +24,8 @@ const db = getDatabase(app);
 const Context = createContext();  
 
 function ContextProvider({children}){
-    
+    const [likedPictures,setLikedPictures] = useState([]);
+    console.log(likedPictures);
     const [uid,setUid] = useState('');
     const [showPopUp,setShowPopUp] =useState(true);
     const [search, setSearch] = useState(false);
@@ -37,7 +38,7 @@ function ContextProvider({children}){
     document.body.style.overflowY = pictureOpen.opened ? 'hidden' : 'auto';
 
   
-    console.log(auth);
+    
 
 
      function setUserData(email,uid){
@@ -48,18 +49,33 @@ function ContextProvider({children}){
 
     function toggleFavorite(id){
 
-         
-        push(ref(db,`users/${uid}/liked/`),{
-            id
-        });
-        
-   
+        if (auth.currentUser){
+            push(ref(db,`users/${uid}/liked/`),{
+                id
+            });
+        }else{
+            alert('please log in');
+        }
     }
 
+ 
+    useEffect(
+        ()=>{
+          return onValue(ref(db,`users/${uid}/liked`),(s)=>{
+            if(s.exists()){
+              const data = Object.entries(s.val());
+              setLikedPictures(data)
+            }else{
+                setLikedPictures([]);
+            }
+            });
     
-
-
-   
+        },[]
+      );
+    
+    
+        
+  
    
 
     useEffect(  
