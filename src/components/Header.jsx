@@ -85,9 +85,6 @@ function Header() {
                 </div>
                 <div className="headerRightDiv">
                     <AuthDetails/>
-                    <Link to="/cart">
-                        <img src= {cartItems.length == 0 ? "/shoppingCart.svg" : "/shoppingCartFilled.svg"} alt="" />
-                    </Link>
                 </div>
             </div>
 

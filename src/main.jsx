@@ -4,7 +4,6 @@ import {App} from './App'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import './index.css';
 import ErrorPage from "./error-page";
-import  Cart  from "./pages/Cart"
 import { ContextProvider } from './Context';
 import { SignIn } from './components/firebase/auth/SignIn';
 import { SignUp } from './components/firebase/auth/SignUp';
@@ -16,10 +15,6 @@ const router = createBrowserRouter([
     element: <App/>,
     errorElement:<ErrorPage/>,
     
-  },
-  {
-    path:"/cart",
-    element: <Cart/>
   },
   { path:"/login",
     element: <SignIn/>

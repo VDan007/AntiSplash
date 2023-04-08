@@ -180,7 +180,7 @@ function ClickedImage(props){
                     </div>
                     <div className="headerButtonDiv">
                         <img src="/heartWhite.svg" alt="" />
-                        <img src="shoppingCart.svg" alt="" />
+                        
                         <button
                             onClick={dropdownToggle}
                         >  {dropdownOpen ? 'Close' : 'Download'}
