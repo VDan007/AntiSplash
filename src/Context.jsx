@@ -31,8 +31,6 @@ function ContextProvider({children}){
     const [searchTerm, setSearchTerm] = useState('');
     const [photoPages,setPhotoPages] = useState(1);
     const [pictures, setPictures] = useState([]);
-    const [cartItems, setCartItems] = useState([]);
-    const [ordering,setOrdering] = useState(false);
     const [ authUser, setAuthUser] = useState(null);
     const [pictureOpen,setPictureOpen] = useState({opened: false,
                                                    picture: {},});
@@ -48,24 +46,6 @@ function ContextProvider({children}){
        });  
     }
 
-    function likePicture(uid,pictureId){
-        set(ref(db,`users/${uid}/${pictureId}`));
-        
-    }
-
-    function addToCart(picture){
-
-            setCartItems(prev=>{
-                const newCartList = [...prev];
-                newCartList.push(picture);
-                return newCartList;
-            });
-    }
-
-    function removeFromCart(picture){
-        setCartItems(prev=> prev.filter(item=> item.id !== picture.id));
-    }
-
     function toggleFavorite(id){
 
          
@@ -76,17 +56,7 @@ function ContextProvider({children}){
    
     }
 
-    function placeOrder(){
-        if(cartItems.length > 0){
-            
-            setOrdering(true);
-            setTimeout(()=>{setOrdering(false),setCartItems([]);},3000);
-            console.log("Ordering")
-
-        }else{
-            alert("Please Select Some Pictures!")
-        }
-    }
+    
 
 
    
@@ -129,11 +99,6 @@ function ContextProvider({children}){
         <Context.Provider value={{pictures,
                                   setPictures,
                                   toggleFavorite,
-                                  addToCart,
-                                  cartItems,
-                                  removeFromCart,
-                                  placeOrder,
-                                  ordering,
                                   db,
                                   auth,
                                   authUser,
