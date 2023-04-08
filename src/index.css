@@ -47,6 +47,7 @@ html, body {
   z-index: 10;
   display: flex;
   flex-direction: column;
+  color: white;
 }
 
 .headerUpper{
@@ -990,4 +991,9 @@ header {
 .accountContainer{
   width: 100%;
   height: 100%;
+}
+
+.accountContainer h1{
+  text-align: center;
+  padding: 1rem;
 }

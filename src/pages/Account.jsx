@@ -1,16 +1,16 @@
 import { useContext, useEffect , useState} from 'react';
 import { Context } from '../Context';
 import { Photo } from '../components/Photo';
+import  Header  from '../components/Header';
+
 
 function Account(){
 
-    const {likedPictures} = useContext(Context);
+    const {likedPictures, auth} = useContext(Context);
+    console.log(likedPictures);
     const [picturesToRender, setPicturesToRender] = useState([]);
-    console.log(picturesToRender);
     
-   
-
-    //https://api.unsplash.com/photos/nDV6ahWLvEg?client_id=YOUR_ACCESS_KEY
+  
 
     useEffect(
         ()=>{
@@ -18,14 +18,14 @@ function Account(){
                  const  promisses = likedPictures.map( async item=>{
                  const resp = await  fetch(`https://api.unsplash.com/photos/${item[1].id}?client_id=aDoVNz0oe4OyiTv3FvuO3tOGZye5kVhJuZEUwcmsj7A`);
                  const data = await resp.json();   
-                 //console.log(data);     
+                     
                  return data;
                    })
 
                    Promise.all(promisses)
                    .then(rv=> setPicturesToRender(rv));
                 
-        },[]
+        },[likedPictures]
     );
 
     
@@ -35,7 +35,8 @@ function Account(){
 
     return(
         <div className="accountContainer">
-            <h1>user account</h1>
+            <Header/>
+            <h1>{auth.currentUser.email}</h1>
             <div className='photos'>
                 {picturesToRender.map(item=>{
                     return (<Photo
