@@ -997,3 +997,26 @@ header {
   text-align: center;
   padding: 1rem;
 }
+
+.userInfoDiv{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  
+  margin: 1rem 0;
+}
+.userInfoDiv img{
+  border-radius: 50%;
+  height: 8rem;
+  border: 1px solid black;
+}
+
+.accountphotoContainer{
+  border-top: 2px solid lightgray;
+}
+
+.accContainerTitle{
+  margin-left: 1rem;
+  padding-bottom: 0.7rem;
+  
+}

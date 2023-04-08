@@ -10,7 +10,7 @@ function Account(){
     console.log(likedPictures);
     const [picturesToRender, setPicturesToRender] = useState([]);
     
-  
+
 
     useEffect(
         ()=>{
@@ -36,8 +36,12 @@ function Account(){
     return(
         <div className="accountContainer">
             <Header/>
-            <h1>{auth.currentUser.email}</h1>
-            <div className='photos'>
+            <div className='userInfoDiv'>
+                <img src={`https://robohash.org/${auth.currentUser.emal}.png`}/>
+                <h1>{auth.currentUser.email}</h1>
+            </div>
+            <p className='accContainerTitle'>liked Photos</p>
+            <div className='photos accountphotoContainer'>
                 {picturesToRender.map(item=>{
                     return (<Photo
                                 data={item}
