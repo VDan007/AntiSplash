@@ -1,5 +1,6 @@
 import { useContext, useEffect , useState} from 'react';
 import { Context } from '../Context';
+import { Photo } from '../components/Photo';
 
 function Account(){
 
@@ -35,7 +36,15 @@ function Account(){
     return(
         <div className="accountContainer">
             <h1>user account</h1>
-            
+            <div className='photos'>
+                {picturesToRender.map(item=>{
+                    return (<Photo
+                                data={item}
+                                key = {item.id}
+                            />);
+                })}
+
+            </div>
         </div>
     );
 }
