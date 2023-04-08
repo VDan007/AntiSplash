@@ -7,10 +7,12 @@ import  Header  from '../components/Header';
 function Account(){
 
     const {likedPictures, auth} = useContext(Context);
-    console.log(likedPictures);
+    let userName = "";
     const [picturesToRender, setPicturesToRender] = useState([]);
     
-
+    if (auth.currentUser){
+        userName = auth.currentUser.email;
+    }
 
     useEffect(
         ()=>{
@@ -37,8 +39,8 @@ function Account(){
         <div className="accountContainer">
             <Header/>
             <div className='userInfoDiv'>
-                <img src={`https://robohash.org/${auth.currentUser.emal}.png`}/>
-                <h1>{auth.currentUser.email}</h1>
+                <img src={`https://robohash.org/${userName}.png`}/>
+                <h1>{userName}</h1>
             </div>
             <p className='accContainerTitle'>liked Photos</p>
             <div className='photos accountphotoContainer'>
