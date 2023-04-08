@@ -18,6 +18,7 @@ function AuthDetails(){
                
             }else{
                 setAuthUser(null);
+                setUid('');
             }
         });
         return () => {

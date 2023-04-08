@@ -27,6 +27,7 @@ function ContextProvider({children}){
     const [likedPictures,setLikedPictures] = useState([]);
     console.log(likedPictures);
     const [uid,setUid] = useState('');
+    console.log(uid);
     const [showPopUp,setShowPopUp] =useState(true);
     const [search, setSearch] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
@@ -61,16 +62,20 @@ function ContextProvider({children}){
  
     useEffect(
         ()=>{
-          return onValue(ref(db,`users/${uid}/liked`),(s)=>{
-            if(s.exists()){
-              const data = Object.entries(s.val());
-              setLikedPictures(data)
-            }else{
-                setLikedPictures([]);
-            }
-            });
+            
+                return onValue(ref(db,'users/' + uid + '/liked'),(s)=>{
+                  if(s.exists()){
+                    const data = Object.entries(s.val());
+                    setLikedPictures(data)
+                  }else{
+                      setLikedPictures([]);
+                      console.log('naa');
+                  }
+                  });
+
+            
     
-        },[]
+        },[uid]
       );
     
     
@@ -99,7 +104,11 @@ function ContextProvider({children}){
                 .then(data=>data.json())
                 .then(data=>{
                     const newArray = [...pictures];
-                    data.forEach(item=>newArray.push(item));
+                    console.log(newArray);
+                    data.forEach(item=>{
+                        if(newArray.every(pic=>pic.alt_description !== item.alt_description)){
+                        newArray.push(item)}
+                    });
                     setPictures(newArray)});
 
             }
