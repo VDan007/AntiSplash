@@ -427,6 +427,30 @@ header {
   border: none;
   width: 100%;
   color: white;
+  cursor: pointer;
+  position: relative;
+}
+.fbLoginBtn:hover{
+  background-color: red;
+}
+
+.fbLoginBtn::after{
+  position: absolute;
+  bottom:-40px;
+  right:0;
+  content: "Sorry, currently unavailable";
+  color: white;
+  background-color: black;
+  border: 1px solid white;
+  display: none;
+  font-size: 1rem;
+  border-radius: 10px;
+}
+
+.fbLoginBtn:hover::after{  
+  display: block;
+  background-color: black;
+  padding:0.3rem;
 }
 
 .loginBtnsINputs{

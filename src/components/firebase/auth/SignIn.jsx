@@ -31,8 +31,9 @@ function SignIn(){
         signInWithEmailAndPassword(auth,email,password)
         .then ( (userCredential) => {
             console.log(userCredential);
-        }).catch((error)=> console.log(error))
-        navigate('/');
+            navigate('/');
+        }).catch(()=>alert('no such user'))
+       
     }
 
     return(
@@ -53,6 +54,7 @@ function SignIn(){
                         value={email}
                         onChange={ handleEmailChange }
                         className='loginBtnsINputs'
+                        required
                     />
                     <label htmlFor="password">
                         Password
@@ -63,6 +65,7 @@ function SignIn(){
                         value= {password}
                         onChange={ handlePasswordChange }
                         className='loginBtnsINputs'
+                        required
                     /> 
                     <button type="submit" className='loginBtnsINputs loginBtn'>
                         Login
