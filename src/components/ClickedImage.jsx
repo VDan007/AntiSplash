@@ -191,7 +191,7 @@ function ClickedImage(props){
                             <a target='_blank' href={profile}>Small</a>
                             <a target='_blank' href={profile}>Medium</a>
                             <a target='_blank' href={profile}>Large</a>
-                            <a target='_blank' href={profile}>Original Size</a>
+                            <a target='_blank' href={profile}>Original</a>
                         </div>}
                     </div>
                 </div>
