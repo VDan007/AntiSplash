@@ -53,7 +53,7 @@ function ContextProvider({children}){
         get(ref(db,'users/' + uid + '/liked/'))
         .then( (s) =>{
             if(s.exists()){
-                Object.values(s.val()).every(item=>item.id !== id)
+             console.log(    Object.values(s.val()).every(item=>item.id !== id) )
             }else{
                 console.log('no data')
             }
