@@ -59,12 +59,15 @@ function Header() {
             const queryTerm = item
             .trim()
             .replace(' ','+');
-        return(<li
-                 onClick={ ()=>{setPictures([]);  
-                                setSearch(queryTerm); 
-                                setSearchTerm(queryTerm)}}
-                 key = {item}
-               >{item}</li>)}
+        return(
+                <Link to='/' key = {item}>
+                    <li
+                        onClick={ ()=>{setPictures([]);  
+                                        setSearch(queryTerm); 
+                                        setSearchTerm(queryTerm)}}
+                        
+                    >{item}</li>
+                 </Link>)}
     );
 
 
