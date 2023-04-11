@@ -1,7 +1,7 @@
 import React, {useState, useContext} from "react";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { Context } from "../../../Context";
-import{ Link } from "react-router-dom";
+import{ Link, useNavigate } from "react-router-dom";
 
 
 
@@ -10,6 +10,7 @@ function SignIn(){
     const { auth } = useContext(Context);
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
+    const navigate = useNavigate();
 
    
 
@@ -31,6 +32,7 @@ function SignIn(){
         .then ( (userCredential) => {
             console.log(userCredential);
         }).catch((error)=> console.log(error))
+        navigate('/');
     }
 
     return(
