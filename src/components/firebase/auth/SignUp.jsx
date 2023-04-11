@@ -1,12 +1,13 @@
 import React, {useState, useContext, useEffect} from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { Context } from "../../../Context";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 
 
 function SignUp(){
+    const navigate = useNavigate();
     const { auth, setUserData,pictures } = useContext(Context);
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
@@ -38,9 +39,11 @@ function SignUp(){
         createUserWithEmailAndPassword(auth,email,password)
         .then ( (userCredential) => {
                     setUserData(email,userCredential.user.uid);
-                    
+                    navigate('/');
                 })
-        .catch((error)=> console.log(error))
+        .catch((error)=> {
+            console.log(error)
+            alert('Please provide a valid email!')})
       
     }
 
@@ -77,13 +80,16 @@ function SignUp(){
                     type="email" 
                     value={email}
                     onChange={ handleEmailChange }
+                    required
                 />
                 <label htmlFor='password'>Password </label>
                 <input 
                     name='password'
-                    type="password"  
+                    type="password"
+                    minLength={6}
                     value= {password}
                     onChange={ handlePasswordChange }
+                    required
                 /> 
                 <button type="submit">Join</button>
             </form>
