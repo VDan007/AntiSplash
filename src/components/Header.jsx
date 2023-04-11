@@ -10,7 +10,7 @@ import { ImageSearchForm } from "./ImageSearchForm";
 
 
 function Header() {
-    const {cartItems,setSearch,setSearchTerm,setPictures} = useContext(Context);
+    const {setSearch,setSearchTerm,setPictures} = useContext(Context);
     const [carouselPosition,setCarouselPosition] = useState(0);
     const caruoselRef = useRef(null);
     const [rightArrowClickCounter, setRightArrowClickCoounter] = useState(0);
@@ -93,8 +93,12 @@ function Header() {
 
             <div className="headerCatergorySearchBar">
                 <div className="headerCatergorySearchBarFix">
-                    <p>Editorial</p>
-                    <p>Following</p>
+                    <Link onClick={()=>{setPictures([]);setSearch('')}} to="/">
+                        <p>Editorial</p>
+                    </Link>
+                    
+
+                   
                 </div>
                 <div className='arrowDiv aDl'>
                     {carouselPosition < 0 && <img src="/arrow-left-s-line.svg" 
