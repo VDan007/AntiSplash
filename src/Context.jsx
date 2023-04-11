@@ -50,6 +50,15 @@ function ContextProvider({children}){
 
     function toggleFavorite(id){
 
+        get(ref(db,'users/' + uid + '/liked/'))
+        .then( (s) =>{
+            if(s.exists()){
+                Object.values(s.val()).every(item=>item.id !== id)
+            }else{
+                console.log('no data')
+            }
+        } )
+
         if (auth.currentUser){
             push(ref(db,`users/${uid}/liked/`),{
                 id
