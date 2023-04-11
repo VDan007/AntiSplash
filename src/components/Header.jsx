@@ -10,6 +10,7 @@ import { ImageSearchForm } from "./ImageSearchForm";
 
 
 function Header() {
+    
     const {setSearch,setSearchTerm,setPictures} = useContext(Context);
     const [carouselPosition,setCarouselPosition] = useState(0);
     const caruoselRef = useRef(null);
