@@ -4,19 +4,27 @@ import { Context } from "../Context";
 import { scroll } from './ClickedImage';
 
  function Photo(props){
+
         const [hovered,setHovered] = useState(false);
-        const {toggleFavorite,setPictureOpen} = useContext(Context);
+        const {toggleFavorite,setPictureOpen, likedPictures} = useContext(Context);
+
+        const isItLiked = likedPictures.every(item=>item[1].id !== props.data.id) ?
+          false :
+          true;
+          
+
+
         return(
             <div className="imgContainer"
                  onMouseEnter={()=>setHovered(true)} 
                  onMouseLeave={()=>setHovered(false)}
             >
-                    {props.data.isFavorite && <img onClick={()=>toggleFavorite(props.data.id)} 
+                    {isItLiked && <img onClick={()=>toggleFavorite(props.data.id)} 
                                                 src="/heartRed.svg" 
                                                 className="heartImg" 
                                                 alt="" 
                                               />}
-                    {!props.data.isFavorite && hovered && <img onClick={()=>toggleFavorite(props.data.id)} 
+                    {!isItLiked && hovered && <img onClick={()=>toggleFavorite(props.data.id)} 
                                                             src="/heartWhite.svg" 
                                                             className="heartImg" 
                                                             alt="" 

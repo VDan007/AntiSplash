@@ -25,9 +25,8 @@ const Context = createContext();
 
 function ContextProvider({children}){
     const [likedPictures,setLikedPictures] = useState([]);
-    console.log(likedPictures);
+    console.dir(likedPictures);
     const [uid,setUid] = useState('');
-    console.log(uid);
     const [showPopUp,setShowPopUp] =useState(true);
     const [search, setSearch] = useState(false);
     const [searchTerm, setSearchTerm] = useState('');
