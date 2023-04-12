@@ -53,7 +53,7 @@ function SignIn(){
                         type="email" 
                         value={email}
                         onChange={ handleEmailChange }
-                        className='loginBtnsINputs'
+                        className='loginBtnsINputs '
                         required
                     />
                     <label htmlFor="password">
