@@ -2,7 +2,7 @@ import React, { useState, useEffect} from "react";
 import { createContext } from "react";
 import { initializeApp} from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getDatabase, ref, set,update,get,push, onValue } from 'firebase/database';
+import { getDatabase, ref, set,update,get,push, onValue,remove } from 'firebase/database';
 
 
 
@@ -58,9 +58,15 @@ function ContextProvider({children}){
                         push(ref(db,`users/${uid}/liked/`),{
                             id
                         });
+                    }else {
+                        console.log('happens');
+                        remove(ref(db,`users/${uid}/liked/${Object.entries(s.val()).find(item=> item[1].id === id)[0] }`));
+                      console.log(Object.entries(s.val()).find(item=> item[1].id = id)[0] );
                     }
                 }else{
-                    console.log('no data')
+                    push(ref(db,`users/${uid}/liked/`),{
+                        id
+                    });
                 }
             } )
 
