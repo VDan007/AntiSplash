@@ -459,11 +459,15 @@ header {
   border: none;
   margin-top: 0.4rem;
   margin-bottom: 1.1rem;
+ 
 }
+
+
 
 .loginBtn{
   background-color: white;
   cursor: pointer;
+  
 }
 
 .noAccountDiv{
@@ -486,6 +490,10 @@ header {
   flex-direction: column;
   width: 100%;
   
+}
+
+.signInForm input{
+  padding-left: 1rem;
 }
 .signUpContainer{
   background-color: black;
