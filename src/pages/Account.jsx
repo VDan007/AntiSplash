@@ -2,11 +2,12 @@ import { useContext, useEffect , useState} from 'react';
 import { Context } from '../Context';
 import { Photo } from '../components/Photo';
 import  Header  from '../components/Header';
+import { ClickedImage } from '../components/ClickedImage';
 
 
 function Account(){
 
-    const {likedPictures, auth} = useContext(Context);
+    const {likedPictures, auth,pictureOpen} = useContext(Context);
     let userName = "";
     const [picturesToRender, setPicturesToRender] = useState([]);
     
@@ -36,23 +37,28 @@ function Account(){
 
 
     return(
-        <div className="accountContainer">
-            <Header/>
-            <div className='userInfoDiv'>
-                <img src={`https://robohash.org/${userName}.png`}/>
-                <h1>{userName}</h1>
-            </div>
-            <p className='accContainerTitle'>liked Photos</p>
-            <div className='photos accountphotoContainer'>
-                {picturesToRender.map(item=>{
-                    return (<Photo
-                                data={item}
-                                key = {item.id}
-                            />);
-                })}
+        <>
+            <div className="accountContainer">
+                <Header/>
+                <div className='userInfoDiv'>
+                    <img src={`https://robohash.org/${userName}.png`}/>
+                    <h1>{userName}</h1>
+                </div>
+                <p className='accContainerTitle'>liked Photos</p>
+                <div className='photos accountphotoContainer'>
+                    {picturesToRender.map(item=>{
+                        return (<Photo
+                                    data={item}
+                                    key = {item.id}
+                                />);
+                    })}
 
+                </div>
             </div>
-        </div>
+            {pictureOpen.opened && <ClickedImage
+                                    photo={pictureOpen.picture}
+          />}       
+        </>
     );
 }
 
