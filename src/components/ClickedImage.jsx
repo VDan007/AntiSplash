@@ -7,11 +7,11 @@ import { ButtonWithDropdownList } from './ButtonWithDropdownList'
 
 
 function ClickedImage(props){
-    const { setPictureOpen,pictures,pictureOpen,setPhotoPages } = useContext(Context);
+    const { setPictureOpen,pictures,pictureOpen,setPhotoPages,likedPictures, toggleFavorite } = useContext(Context);
 
-    console.log( 'pictures' + pictures[0].id);
-    console.log( 'openedPicture' + pictureOpen.picture.id);
-    console.log( pictures.indexOf(pictures.find(pic=>pic.id=== pictureOpen.picture.id)) );
+    // console.log( 'pictures' + pictures[0].id);
+    // console.log( 'openedPicture' + pictureOpen.picture.id);
+    // console.log( pictures.indexOf(pictures.find(pic=>pic.id=== pictureOpen.picture.id)) );
    
 
     const [morePictures,setMorePictures] = useState([]);
@@ -37,6 +37,7 @@ function ClickedImage(props){
     });
     const [dropdownOpen,setDropdownOpen] = useState(false);
     const picture = props.photo;
+    
     const profilePicture = picture.user.profile_image.small;
     const name = picture.user.first_name + " " + picture.user.last_name;
     const avalible = picture.user.for_hire ? "Avalible for hire" : `${picture.user.instagram_username}`;
@@ -60,6 +61,9 @@ function ClickedImage(props){
             :
             '';
     const dropdownMenuRef = useRef(null);
+    const isItLiked = likedPictures.every(item=>item[1].id !== picture.id) ?
+          false :
+          true;
    
     
     
@@ -179,7 +183,12 @@ function ClickedImage(props){
                         </div>
                     </div>
                     <div className="headerButtonDiv">
-                        <img src="/heartWhite.svg" alt="" />
+                    <img onClick={()=>toggleFavorite(picture.id)} 
+                                                src= {isItLiked ? "/heartRed.svg": "/heartWhite.svg"}
+                                                className="heartImg" 
+                                                alt="" 
+                                              />
+                   
                         
                         <button
                             onClick={dropdownToggle}

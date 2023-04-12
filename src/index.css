@@ -661,6 +661,10 @@ header {
   position: relative;
 }
 
+.headerButtonDiv .heartImg{
+  position: initial;
+}
+
 .headerButtonDiv button{
   padding: 0.4rem 0.9rem;
   background-color: black;
