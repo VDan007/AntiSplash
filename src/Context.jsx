@@ -50,19 +50,23 @@ function ContextProvider({children}){
 
     function toggleFavorite(id){
 
-        get(ref(db,'users/' + uid + '/liked/'))
-        .then( (s) =>{
-            if(s.exists()){
-             console.log(    Object.values(s.val()).every(item=>item.id !== id) )
-            }else{
-                console.log('no data')
-            }
-        } )
-
         if (auth.currentUser){
-            push(ref(db,`users/${uid}/liked/`),{
-                id
-            });
+
+            get(ref(db,'users/' + uid + '/liked/'))
+            .then( (s) =>{
+                if(s.exists()){
+                    if( Object.values(s.val()).every(item=>item.id !== id) ){
+                        push(ref(db,`users/${uid}/liked/`),{
+                            id
+                        });
+                    }
+                }else{
+                    console.log('no data')
+                }
+            } )
+
+       
+            
         }else{
             alert('please log in');
         }
