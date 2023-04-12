@@ -1,5 +1,5 @@
 An unsplash insipired project for my portfolio.
-The idea is to clone unsplash, add a dark theme, get familiar with Firebase.
+The idea is to clone unsplash, add a dark theme, use Firebase to store user data.
 
 technologies used:
 -vite
