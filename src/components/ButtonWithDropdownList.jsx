@@ -21,7 +21,7 @@
     function closeOnAwayClick(e){
         if(listRef.current && !listRef.current.contains(e.target)){
             setShovList(false);
-            console.log('should');
+            console.log('shouldd');
         }
         
     }
